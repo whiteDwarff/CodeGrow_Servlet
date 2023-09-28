@@ -4,8 +4,11 @@
 	color: black;
 	list-style: none;
 	text-decoration: none;
+	box-sizing: border-box;
 }
-
+body {
+	font-size: 10px;
+}
 /* 단일 tag  */
 section {
 	margin-top: 10%;
@@ -21,8 +24,9 @@ label {
 	display: inline-block;
 	width: 19%;
 }
-
-/* 불특정 테그에서 사용되는 class  */
+.title {
+	font-size: 0.8rem; font-weight: bold;
+}
 .wrapper {
 	display: flex;
 }
@@ -77,17 +81,16 @@ section article .border-box input {
 	justify-content: center;
 }
 #find-member-info span { margin: 0 5px; }
-#find-member-info a:hover { color: greenyellow; }
+#join-submit:hover { color: greenyellow; }
+#login-button:hover  { color: greenyellow; }
 
 /* account from */
-#tel { display: flex; align-items: center; justify-content: space-around; padding: 15px 0; }
-#tel select { width: 30%; display: block;}
-#tel input {
-	border: 1px solid black;
-	width:30%;
-	display: block; height: 19px; padding: 0; box-sizing: border-box;
-}
-#tel span {
-	width: 5%; display: inline-block; text-align: center;
-}
+#tel { width: 80%; }
 
+#join-submit,
+#login-button {
+	display: block;
+	margin: 4rem 2rem 4rem auto;
+	border: none;
+	outline: none;
+}

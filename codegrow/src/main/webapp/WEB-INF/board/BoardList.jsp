@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CodeGrow || Q&A</title>
 <script src="https://kit.fontawesome.com/08a7424104.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./css/ohter/common.css">
 <link rel="stylesheet" href="./css/ohter/header.css">
@@ -74,13 +74,12 @@
 				<input type="text" name="content" id="form-value">
 				<div id="button-wrap" class="text-align">
 					<button id="search-button" class="pointer hover">검색</button>
-		 			<a href="#" id="qna-button" class="pointer hover">문의하기</a>
+					<c:if test="${ not empty sessionScope.name }">
+		 			<a href="/boardInsert" id="qna-button" class="pointer hover">문의하기</a>
+		 			</c:if>
 				</div>
 			</form>
 	</section>
-	<footer>
-		footer
-	</footer>
 
 <script src="./script/ohter/header.js"></script>
 <script type="module">

@@ -31,10 +31,10 @@ public class Register {
 		this.tel = tel;
 	}
 	
-	public Register(String email, String pwd, String name, String tel) {
+	public Register(String name, String email, String pwd, String tel) {
+	  this.name = name;
 		this.email = email;
 		this.pwd = pwd;
-		this.name = name;
 		this.tel = tel;
 	}
 	public Register() {	}

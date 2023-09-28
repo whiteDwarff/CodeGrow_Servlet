@@ -59,6 +59,12 @@ public class AuthDto {
   
   public AuthDto() { }
   
+  public AuthDto(String title, String content, int author_id) {
+    this.title = title;
+    this.content = content;
+    this.author_id = author_id;
+  }
+  
   public AuthDto(int id, String title, String content, int author_id, Date created_at, int hit, String name) {
     this.id = id;
     this.title = title;

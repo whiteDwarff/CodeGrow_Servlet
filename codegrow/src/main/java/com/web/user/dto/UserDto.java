@@ -3,14 +3,20 @@ package com.web.user.dto;
 import java.util.Date;
 
 public class UserDto {
-	
-	private String email;
+	private int id;
+ private String email;
 	private String pwd;
 	private String name;
 	private String tel;
 	private Date regDate;
 	private int number;
 	
+ public int getId() {
+   return id;
+ }
+ public void setId(int id) {
+   this.id = id;
+ }
 	public String getEmail() {
 		return email;
 	}
@@ -48,8 +54,8 @@ public class UserDto {
 		this.number = number;
 	}
 	
-	public UserDto(String email, String pwd, String name, String tel, Date regDate, int number) {
-
+	public UserDto(int id, String email, String pwd, String name, String tel, Date regDate, int number) {
+	 this.id = id;
 		this.email = email;
 		this.pwd = pwd;
 		this.name = name;

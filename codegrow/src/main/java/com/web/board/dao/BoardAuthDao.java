@@ -20,9 +20,6 @@ public class BoardAuthDao {
 
   // 게시판의 모든 데이터 조회
   public List<AuthDto> fetchedBoardList(int p, int numOfRecords, String select) {
-//    String sql = "SELECT b.id, b.title, b.content, b.author_id, b.created_at, "+
-//        "b.hit, m.name FROM board b JOIN member m on b.author_id = m.id ORDER BY b.id DESC LIMIT ?, ?";
-//    
     String sql = "";
     System.out.println(select);
     
@@ -155,8 +152,6 @@ public class BoardAuthDao {
         ) {
       if(rs.next()) count = rs.getInt(1);
       
-      System.out.println(count);
-      
     } catch(Exception e) {
       e.printStackTrace();
     }
@@ -174,5 +169,44 @@ public class BoardAuthDao {
     }  catch(Exception e) {
       e.printStackTrace();
     }
+  }
+  // 게시글 작성
+  public void insertBoard(AuthDto dto) {
+    String sql = "INSERT INTO board (title, content, author_id) VALUES (?, ?, ?)";
+    
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+      pstmt.setString(1, dto.getTitle());
+      pstmt.setString(2, dto.getContent());
+      pstmt.setInt(3, dto.getAuthor_id());
+      int i = pstmt.executeUpdate();
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  public int getId(String title, String content) {
+    String sql = "SELECT id FROM BOARD WHERE title = ? and content = ?";
+    int count = 0;
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+        pstmt.setString(1, title);
+        pstmt.setString(2, content);
+        try(ResultSet rs = pstmt.executeQuery();) {
+      
+        if(rs.next()) count = rs.getInt(1);
+        }
+        System.out.println(sql);
+        System.out.println(title);
+        System.out.println(content);
+        System.out.println("count : " + count);
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+    return count;
   }
 }

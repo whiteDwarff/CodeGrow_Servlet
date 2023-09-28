@@ -49,8 +49,13 @@ public class ContentDto {
   public ContentDto() {
     // TODO Auto-generated constructor stub
   }
+  public ContentDto(int id, String content, Date created_at, String name) {
+    this.id = id;
+    this.content = content;
+    this.created_at = created_at;
+    this.name = name;
+  }
   public ContentDto(int id, String content, int post_id, int author_id, Date created_at, String name) {
-    super();
     this.id = id;
     this.content = content;
     this.post_id = post_id;

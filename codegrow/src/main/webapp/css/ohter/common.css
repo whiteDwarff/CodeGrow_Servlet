@@ -26,6 +26,12 @@ embed {
 .align {
 	align-items: center;
 }
+.align-bottom {
+	align-items: baseline;
+}
+.align-top {
+	align-items: start;
+}
 .text-align {
 	text-align: center;
 }

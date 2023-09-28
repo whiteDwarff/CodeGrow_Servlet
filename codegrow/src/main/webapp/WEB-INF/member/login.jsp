@@ -5,20 +5,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>COMMUNITY || LOGIN</title>
-<link rel="stylesheet" href="/css/login.css">
+<title>CodeGrow || LOGIN</title>
+<script src="https://kit.fontawesome.com/08a7424104.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="./css/ohter/common.css">
+<link rel="stylesheet" href="./css/ohter/header.css">
+<script type="module">
+import { failedLoginInfo } from "./script/member/index.js";
+failedLoginInfo("${msg}");
+</script>
 </head>
 <body>
-${loginGuide}
-${createAccount}
-	<h3><a href="index.jsp">LOGO</a></h3>
+<%@include file="../common/header.jsp"%>
 	<section>
 		<div class="wrapper">
 	
 		<article id="login">
 			<div class="form-wrapper">
 				<span class="title">LOGIN</span>
-				<form method="post" action="/user/login">
+				<form method="post" action="/login" id="login-form">
 					<div class="border-box">
 						<label for="login-id">EMAIL</label>
 						<input id="login-id" type="text" name="email">
@@ -27,56 +32,28 @@ ${createAccount}
 						<label for="login-pwd">PW</label>
 						<input id="login-pwd" type="password" name="pwd">
 					</div>
-					<div class="flex-box">
-					<div id="submit-box">
-						<p>
-							<input id="cookie" type="checkbox" name="cookie">
-							<label for="cookie" class="inline">REMEMBER ME</label>
-						</p>
 						<input type="submit" id="login-button" value="SIGN IN">
-					</div>
-				</div>
 				</form>
-				<div id="find-member-info">
-					<a href="#">Did You Forget Your Id</a> 
-					<span class="bold inline">Or</span>
-					<a href="#">Password?</a> 
-				</div>
 			</div>
 		</article>
-		
 		
 		<article id="account">
 			<div class="form-wrapper">
 			<h6 class="title">CREATE ACCOUNT</h6>
-				<form method="post" action="/member/signUp">
-					<div class="border-box">
-						<label for="accound-id">EMAIL</label>
-						<input id="accound-id" type="text" name="email">
-					</div>
-					<div class="border-box">
-						<label for="accound-pwd">PW</label>
-						<input id="accound-pwd" type="password" name="pwd">
-					</div>
-					<div class="border-box">
-						<label for="accound-pwd-chk">PW CHECK</label>
-						<input id="accound-pwd-chk" type="password">
-					</div>
-					<div class="border-box">
-						<label for="name">NAME</label>
-						<input id="name" type="text" name="name">
-					</div>
-					<div class="border-box" id="tel">
-						<label>TEL</label>
-						<input type="text" name="tel">
-					</div>
-					<input type="submit" value="JOIN US">
+				<form method="post" action="/join" id="join-form">
+					<%@include file="./account.jsp"%>
+					<input type="submit" value="JOIN US" id="join-submit" class="pointer">
 				</form>
 			</div>
 		</article>
-		</div>
 		
+		</div>
 	</section>
-	<h1><a href="index.jsp">LOGO</a></h1>
+<script src="./script/ohter/header.js"></script>
+<script type="module">
+import { submitLoginInfo, submitAccountInfo } from "./script/member/index.js";
+submitLoginInfo();
+submitAccountInfo();
+</script>
 </body>
 </html>

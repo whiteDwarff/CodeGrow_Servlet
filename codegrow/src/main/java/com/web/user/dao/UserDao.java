@@ -20,7 +20,7 @@ public class UserDao {
 		
 		UserDto user = new UserDto();
 		
-		String sql = "SELECT email, password, name, phone_number, created_at FROM member" +
+		String sql = "SELECT * FROM member" +
 					 " WHERE email = ? AND password = ?";
 		// finally를 통해 con, pstmt를 닫아줄 필요 없음
 		try(
@@ -35,8 +35,8 @@ public class UserDao {
 			try (ResultSet rs = pstmt.executeQuery();) {
 				if(rs.next()) {
 					// query를 통해 반환된 값을 user 객체에 저장
-					// login dto 객체의 값을 email에 셋팅
-					user.setEmail(dto.getEmail());
+				 user.setId(rs.getInt("id"));
+					user.setEmail(rs.getString("email"));
 					user.setName(rs.getString("name"));
 					user.setTel(rs.getString("phone_number"));
 					user.setRegDate(rs.getDate("created_at"));
@@ -63,11 +63,6 @@ public class UserDao {
 	    pstmt.setString(4, user.getTel());
 	    
 	    result = pstmt.executeUpdate();
-	    
-	    System.out.println(user.getName());
-	    System.out.println(user.getEmail());
-	    System.out.println(user.getPwd());
-	    System.out.println(user.getTel());
 	    
 	  } catch (Exception e) {
 	    e.printStackTrace();
