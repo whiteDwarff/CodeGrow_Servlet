@@ -1,0 +1,46 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	color: black;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+img,
+embed {
+    vertical-align: bottom;
+}
+.flex {
+	display: flex;
+}
+.between {
+	justify-content: space-between;
+}
+.center {
+	justify-content: center;
+}
+.around {
+	justify-content: space-around;
+}
+.align {
+	align-items: center;
+}
+.text-align {
+	text-align: center;
+}
+.block {
+	display: block;
+}
+.none {
+	display: none;
+}
+.inline {
+	display: inline-block;
+}
+.pointer {
+	cursor: pointer;
+}
+.grey {
+	color: grey;
+}

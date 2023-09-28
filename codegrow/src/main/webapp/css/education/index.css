@@ -1,0 +1,144 @@
+@charset "UTF-8";
+* {
+	list-style: none;
+	color: black;
+}
+
+embed {
+	width: 70%;
+}
+
+header {
+	margin-bottom: 80px;
+}
+#url-box {
+	margin-bottom: 150px;
+}
+
+#main-url {
+	border-radius: 20px;
+}
+
+.wrap {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.flex-box {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.list-box {
+	width: 30%;
+	padding: 20px;
+}
+#hit {
+	padding: 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+small {
+	color: #444;
+}
+.url-title {
+	font-size: 25px;
+	font-weight: bold;
+	padding: 20px 0;
+}
+
+.url-content {
+	font-size: 14px;
+	font-weight: normal;
+	color: rgb(80, 80, 80);
+}
+
+.sub-url {
+	width: 70px;
+}
+
+.list {
+	overflow: scroll;
+}
+
+.scroll-box {
+	height: 400px;
+}
+
+.list li a {
+	display: block;
+	display: flex;
+	align-items: center;
+}
+
+.list li {
+	width: 100%;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	transition: 0.2s ease-out;
+}
+
+.list li:hover {
+	border: 1px solid #000;
+}
+
+.list li a span {
+	display: block;
+	font-size: 10px;
+	margin-left: 20px;
+}
+
+.list li a span:first-child {
+	font-weight: bold;
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+#addToFavoritesBtn {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	display: block;
+	margin: 50px 0;
+	background-color: #73d09a;
+	border-style: none;
+	border-radius: 10px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 2px 2px 7px 2px rgb(233, 233, 233);
+}
+#addToFavoritesBtn a {
+	color: #fff;
+}
+.add {
+	color: #fff;
+}
+
+/* editor  */
+.margin-bottom {
+	margin: 100px 0 50px 0;
+}
+#output {
+	width: calc(100% - 10%);
+	margin-left: 10%;
+ 	/* border: 1px solid black; */
+ }
+ #code-editor .wrap {
+ 	position: relative;
+ }
+ #run-button {
+ 	position: absolute;
+ 	bottom: -60px;
+ 	right: 0;
+ 	display: block;
+ 	padding: 10px 30px;
+ 	cursor: pointer;
+ 	border: none;
+ 	background-color: #73d09a;
+ 	color: #fff;
+ 	font-weight: bold;
+ 	border-radius: 5px;
+ }

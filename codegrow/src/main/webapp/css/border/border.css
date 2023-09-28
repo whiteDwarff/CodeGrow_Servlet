@@ -1,0 +1,130 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	color: black;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+body {
+	font-size: 10px;
+}
+a {color: black;}
+#board-section{ 
+	margin-top: 4rem;
+	min-height: calc(100vh - 20rem);
+}
+#ohter {
+	height: 10rem;
+}
+footer {
+	height: 10rem;
+}
+/* section-wrap */
+.board-list {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+#align-option {
+	text-align: right;
+	outline: none;
+	margin-bottom: 2rem;
+}
+.post-item {
+  background-color: #f8f9fa;
+}
+table {
+  border-collapse: collapse; /* 테이블 셀 간의 간격 없애기 */
+  width: 100%; /* 테이블이 가로로 꽉 차게 */
+  text-align: center;
+}
+
+th {
+  border-top: 1px solid #999; /* 셀 경계선 */
+  border-bottom: 1px solid #999; /* 셀 경계선 */
+  padding: 1.2rem 0; /* 안쪽 여백 */
+}
+
+td {
+  padding: 1.2rem 0; /* 안쪽 여백 */
+}
+tr{ 
+	border-bottom: 1px solid #ddd; /* 셀 경계선 */
+}
+tr:last-child {
+	 border-top: 1px solid #999;
+}
+.post-number,
+.post-author,
+.post-date,
+.post-hit {
+	width: 10%;
+}
+.post-title {
+	width: 60%;
+}
+#data-none {
+	padding: 3rem 0;
+}
+#page {
+	margin: 3rem 0;
+	height: 3rem;
+}
+
+#search-form {
+	width: 50%;
+	margin: 0 auto;
+	border: 1px solid #000;
+}
+#search-form > * {
+	padding: 0.7rem;
+	border: none;
+	outline: none;
+	border-right: none;
+	font-size: 0.7rem;
+}
+#search-form select {
+	width: 20%;
+	border-right: 1px solid #000;
+}
+#search-form input {
+	width: 60%;
+}
+#button-wrap {
+	width: 20%;
+	text-align: center;
+}
+#search-button, #qna-button {
+	display: inline-block;
+	width: 40%;
+	font-size: 0.7rem;
+	background-color: #fff;
+	border:none;
+}
+.hover:hover {
+	text-decoration: underline;
+	text-decoration-color: #73d09a;
+	text-underline-position : under;
+}
+#page-nation {
+	margin: 2rem 0;
+}
+#page-nation a {
+	display: block;
+	width: 2rem;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	font-size: 0.7rem;
+}
+.currentPage {
+	background-color: #73d09a;   
+	color: #fff;
+	font-weight: bold;
+	border-radius: 50%;
+}
+.hidden {
+	visibility: hidden;
+}

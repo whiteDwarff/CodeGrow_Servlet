@@ -1,0 +1,47 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	color: black;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+body {
+	font-size: 10px;
+}
+a {color: black;}
+span {display: block;}
+h3 {
+	font-size: 1.4rem;
+	margin-bottom: 2rem;
+}
+#main-content {
+	width: 60%;
+	margin: 0 auto;
+}
+.qna-wrap {
+	padding: 1rem 0;
+	border: 1px solid #999;
+	border-bottom: none;
+}
+#last-wrap {
+	border-bottom: 1px solid #999;
+}
+.qna-wrap .label {
+	width: 20%;
+	padding: 0 2rem;
+}
+.qna-wrap .label i {
+	display: inline-block;
+	margin-right: 0.6rem;
+}
+.grey {
+	color: grey;
+	font-size: 0.7rem;
+}
+#content {
+	margin: 2rem 0;
+	font-size: 1rem;
+}
+#note {display: inline-block; margin-right: 0.6rem;}

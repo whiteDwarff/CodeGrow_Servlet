@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+header {
+    background-color: #fff;
+    transition: 0.7s ease-in-out;
+}
+.header-wrap {
+    width: 70%;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+}
+.header-wrap .sub-gnb img:first-child {
+	margin-left: 100px;
+}
+h1 {
+	font-size: 16px;
+}
+nav a {
+    color: #333;
+    margin-right: 30px;
+    font-size: 13px;
+}
+.header-image {
+	font-size: 13px;
+	padding: 0 2rem;
+}
+#search-box,
+#account-box {
+		width: 100%;
+    background-color: #fff;
+    z-index: 10;
+    position: absolute;
+    top: 50px;
+}
+.header-slide-wrap {
+    width: 50%;
+    margin: 0 auto;
+    display: none;
+    padding: 40px 0;
+    transition: 0.4s ease-in-out;
+}
+
+#search-box form {
+    display: flex;
+    align-items: center;
+}
+#header-input-image {
+    font-size: 1.3rem;
+    padding-right: 20px;
+    color: #333;
+}
+#search-box input {
+    width: calc(40% - 30px);
+    padding-left: 100px;
+    padding: 20px 0;
+    outline: none;
+    font-size: 24px;
+    border-style: none;
+}
+input::placeholder {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#account-box h4 {
+    font-size: 24px;
+}
+#login-span {
+    margin: 30px 0 50px 0;
+    color: rgb(130, 130, 130);
+}
+#login-span a {
+    color: rgb(43, 126, 252);
+    text-decoration: underline;
+}
+#profile {
+    margin-bottom: 25px;
+    color: rgb(130, 130, 130);
+}
+#account-box .label-box div {
+	margin-bottom: 20px;
+}
+#account-box span {
+    display: block;
+}
+
+#account-box .label-box a {
+		display: block;
+    margin-left: 20px;
+    color: rgb(33, 33, 33);
+   
+}
+.block {
+	display: block;
+}
+.none {
+	display: none;
+}
