@@ -20,7 +20,7 @@
 			<h3>❗ ${ content.title }</h3>
 				<c:if test="${ sessionScope.name == content.name }">
 				<div>
-					<i class="fa-solid fa-pen pointer"></i>
+					<a href="/boardInsert?id=${ content.id }"><i class="fa-solid fa-pen pointer"></i></a>
 					<i class="fa-solid fa-trash pointer"></i>
 				</div>			
 				</c:if>

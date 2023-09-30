@@ -29,6 +29,8 @@ public class BoardInsertController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     // TODO Auto-generated method stub
+    Service service = new BoardContentService();
+    service.execute(req, resp);
     req.getRequestDispatcher("/WEB-INF/board/insertBoard.jsp").forward(req, resp);
   }
 }

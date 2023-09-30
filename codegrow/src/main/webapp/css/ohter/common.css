@@ -50,3 +50,9 @@ embed {
 .grey {
 	color: grey;
 }
+.border-bottom {
+	border-bottom: 1px solid #999;
+}
+.font {
+	font-size: 0.7rem;
+}

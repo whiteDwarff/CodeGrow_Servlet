@@ -1,0 +1,41 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	color: black;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+body {
+	font-size: 10px;
+}
+a {color: black;}
+span {display: block;}
+section {
+	width: 60%;
+	margin: 0 auto;
+}
+.flex {
+	margin-bottom: 3rem;
+	padding: 1rem 0;
+}
+.label {
+	display: block;
+	width: 20%;
+	font-size: 0.7rem;
+	color: grey;
+}
+.input {
+	width: 80%;
+	outline: none;
+	border: none;
+	font-size: 0.7rem;
+}
+textarea {
+	resize: none;
+	height: 10rem;
+}
+#submit-button {
+	margin-left: auto;
+}

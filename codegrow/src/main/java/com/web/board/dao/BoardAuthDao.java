@@ -186,6 +186,22 @@ public class BoardAuthDao {
       e.printStackTrace();
     }
   }
+  public void updateBoard(String title, String content, int id) {
+    String sql = "UPDATE BOARD SET title=?, content=? where id=?";
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+      pstmt.setString(1, title);
+      pstmt.setString(2, content);
+      pstmt.setInt(3, id);
+      int i = pstmt.executeUpdate();
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+    
+    
+  }
   public int getId(String title, String content) {
     String sql = "SELECT id FROM BOARD WHERE title = ? and content = ?";
     int count = 0;
@@ -199,10 +215,6 @@ public class BoardAuthDao {
       
         if(rs.next()) count = rs.getInt(1);
         }
-        System.out.println(sql);
-        System.out.println(title);
-        System.out.println(content);
-        System.out.println("count : " + count);
       
     } catch(Exception e) {
       e.printStackTrace();

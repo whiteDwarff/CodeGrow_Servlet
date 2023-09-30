@@ -9,32 +9,52 @@
 <script src="https://kit.fontawesome.com/08a7424104.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./css/ohter/common.css">
 <link rel="stylesheet" href="./css/ohter/header.css">
+<link rel="stylesheet" href="./css/border/boardInsert.css">
 </head>
 <body>
 	<%@include file="../common/header.jsp"%>
 	
 	<section>
-		<form method="post" action="/boardInsert">
-			<div>
-				<label for="title">TITLE</label>
-				<input type="text" id="title" name="title">
-			</div>
-			<div>
-				<label for="content">CONTENT</label>
-				<textarea id="content" name="content"></textarea>
-			</div>
-			<!-- <div>
-				<label for="file">FILE</label>
-				<input type="file" id="file" name="file"></input>
-			</div> -->
-			<button id="submit-button">SUBMIT</button>		
-		</form>
-	
-	
+		<c:if test="${ not empty  content }">
+			<form method="post" action="/boardUpdate">
+				<div class="flex border-bottom">
+					<span class="label">NAME</span>
+					<span class="input">${ sessionScope.name }</span>
+				</div>
+				<div class="flex border-bottom align">
+					<label for="title" class="label">TITLE</label>
+					<input value="${ content.title }" type="text" id="title" name="title" class="input">
+				</div>
+				<div class="flex border-bottom align">
+					<label for="content" class="label">CONTENT</label>
+					<textarea id="content" name="content" class="input">${ content.content }</textarea>
+				</div>
+				<button id="submit-button" class="pointer block">UPDATE</button>		
+			</form>
+		</c:if>
+		
+		<c:if test="${ empty content }">
+			<form method="post" action="/boardInsert">
+				<div class="flex border-bottom">
+					<span class="label">NAME</span>
+					<span class="input">${ sessionScope.name }</span>
+				</div>
+				<div class="flex border-bottom">
+					<label for="title" class="label">TITLE</label>
+					<input type="text" id="title" name="title" class="input">
+				</div>
+				<div class="flex border-bottom">
+					<label for="content" class="label">CONTENT</label>
+					<textarea id="content" name="content" class="input"></textarea>
+				</div>
+				<!-- <div>
+					<label for="file">FILE</label>
+					<input type="file" id="file" name="file"></input>
+				</div> -->
+				<button id="submit-button" class="pointer block">SUBMIT</button>		
+			</form>
+		</c:if>
 	</section>
-
-
-
 
 	<script src="./script/ohter/header.js"></script>
 </body>
