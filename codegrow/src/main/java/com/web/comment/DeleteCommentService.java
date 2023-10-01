@@ -1,31 +1,29 @@
-package com.web.board.controller;
+package com.web.comment;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.web.board.dao.BoardAuthDao;
+import com.web.board.dao.BoardCommentDao;
 import com.web.service.Service;
 
-public class BoardUpdateService implements Service {
+public class DeleteCommentService implements Service {
 
   @Override
   public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     // TODO Auto-generated method stub
     req.setCharacterEncoding("utf-8");
-    String title = req.getParameter("title");
-    String contentValue = req.getParameter("content");
-    int id = Integer.parseInt(req.getParameter("id"));
+    int comment_id = Integer.parseInt(req.getParameter("comment_id"));
+    int board_id = Integer.parseInt(req.getParameter("board_id"));
     
-    BoardAuthDao dao = BoardAuthDao.getInstance();
-    dao.updateBoard(title, contentValue, id);
+    BoardCommentDao dao = BoardCommentDao.getInstance();
+    dao.deleteComment(comment_id);
     
     HttpSession session = req.getSession();
-    session.setAttribute("boardId", id);
+    session.setAttribute("board_id", board_id);
   }
 
 }

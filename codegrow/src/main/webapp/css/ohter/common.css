@@ -56,3 +56,6 @@ embed {
 .font {
 	font-size: 0.7rem;
 }
+.bold {
+	font-weight: bold;
+}

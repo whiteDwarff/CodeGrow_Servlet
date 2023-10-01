@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.web.board.dao.BoardAuthDao;
-import com.web.board.dao.BoardContentDao;
+import com.web.board.dao.BoardCommentDao;
 import com.web.board.dto.AuthDto;
 import com.web.board.dto.ContentDto;
 import com.web.category.dao.CategoryDao;
@@ -25,7 +25,7 @@ public class BoardContentService implements Service {
       String id = req.getParameter("id");
       
       BoardAuthDao dao = BoardAuthDao.getInstance();
-      BoardContentDao contentDao = BoardContentDao.getInstance();
+      BoardCommentDao contentDao = BoardCommentDao.getInstance();
       CategoryDao group = CategoryDao.getInstance();
       List<CategoryDto> menus = group.setHeader();
     

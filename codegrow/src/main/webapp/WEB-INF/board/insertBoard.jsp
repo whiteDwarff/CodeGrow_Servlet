@@ -21,15 +21,20 @@
 					<span class="label">NAME</span>
 					<span class="input">${ sessionScope.name }</span>
 				</div>
+				<div class="flex border-bottom">
+					<span class="label">DATE</span>
+					<span class="input">${ content.created_at }</span>
+				</div>
 				<div class="flex border-bottom align">
 					<label for="title" class="label">TITLE</label>
 					<input value="${ content.title }" type="text" id="title" name="title" class="input">
+					<input value="${ content.id }" type="text" name="id" class="none">
 				</div>
-				<div class="flex border-bottom align">
+				<div class="flex border-bottom align-top">
 					<label for="content" class="label">CONTENT</label>
 					<textarea id="content" name="content" class="input">${ content.content }</textarea>
 				</div>
-				<button id="submit-button" class="pointer block">UPDATE</button>		
+				<button id="submit-button" class="pointer block bold">UPDATE</button>		
 			</form>
 		</c:if>
 		
@@ -43,7 +48,7 @@
 					<label for="title" class="label">TITLE</label>
 					<input type="text" id="title" name="title" class="input">
 				</div>
-				<div class="flex border-bottom">
+				<div class="flex border-bottom  align-top">
 					<label for="content" class="label">CONTENT</label>
 					<textarea id="content" name="content" class="input"></textarea>
 				</div>
@@ -51,7 +56,7 @@
 					<label for="file">FILE</label>
 					<input type="file" id="file" name="file"></input>
 				</div> -->
-				<button id="submit-button" class="pointer block">SUBMIT</button>		
+				<button id="submit-button" class="pointer block bold">SUBMIT</button>		
 			</form>
 		</c:if>
 	</section>

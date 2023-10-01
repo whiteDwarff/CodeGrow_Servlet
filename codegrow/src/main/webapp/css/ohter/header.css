@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 header {
-    background-color: #fff;
+    background-color: rgb(244, 244, 244, 0.5);
     transition: 0.7s ease-in-out;
 }
 .header-wrap {
@@ -96,4 +96,7 @@ input::placeholder {
 }
 .none {
 	display: none;
+}
+#header-empty-box {
+	padding: 3rem 0;
 }

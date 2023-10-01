@@ -13,10 +13,14 @@ body {
 a {color: black;}
 span {display: block;}
 #main-content,
-#comment-content
+#comment-content,
+#add-content
  {
 	width: 60%;
 	margin: 0 auto;
+}
+#main-content {
+	margin-bottom: 10rem;
 }
 #title-wrap {
 	margin: 2rem 0;
@@ -39,7 +43,7 @@ h3 {
 #last-wrap {
 	border-bottom: 1px solid #999;
 }
-.qna-wrap .label {
+.label {
 	width: 20%;
 	padding: 0 2rem;
 }
@@ -57,9 +61,6 @@ h3 {
 }
 #note {display: inline-block; margin-right: 0.6rem;}
 
-#comment-content {
-	margin-top: 10rem;
-}
 /* comment */
 .comment-card {
 	border: 1px solid #999;
@@ -87,4 +88,33 @@ h3 {
 .comment-content {
 	font-size: 0.8rem;
 	margin-top: 0.7rem;
+}
+
+/* 댓글 작성 */
+#add-content {
+	background: rgb(244, 244, 244, 0.5);
+	margin: 0 auto 3rem auto;
+	padding: 3rem 0;
+}
+textarea {
+	width: 63%;
+	height: 3rem;
+	resize: none;
+	outline: none;
+	margin-right: 2%;
+	padding: 1rem;
+}
+#submit-button {
+	height: 3rem;
+	width: 10%;
+	outline: none;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	margin-right: 5%;
+	transition: .5s ease-in;
+}
+#submit-button:hover {
+	background-color: #73d09a;
+	transition: .5s ease-in;
 }

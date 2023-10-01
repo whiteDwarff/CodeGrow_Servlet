@@ -11,10 +11,10 @@ import java.util.List;
 import com.web.board.dto.ContentDto;
 import com.web.connection.ConnectionProvider;
 
-public class BoardContentDao {
-  private static BoardContentDao instance = new BoardContentDao();
+public class BoardCommentDao {
+  private static BoardCommentDao instance = new BoardCommentDao();
 
-  public static BoardContentDao getInstance() {
+  public static BoardCommentDao getInstance() {
     return instance;
   }
   
@@ -50,6 +50,52 @@ public class BoardContentDao {
     }
     return lists;
   }
+  // 댓글 등록 
+  public void insertComment(String comment, int post_id, int author_id) {
+    String sql = "INSERT INTO comment (content, post_id, author_id) VALUES (?, ?, ?)";
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ){
+      pstmt.setString(1, comment);
+      pstmt.setInt(2, post_id);
+      pstmt.setInt(3, author_id);
+      
+      pstmt.executeUpdate();
+      
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  // 댓글 수정
+  public void updateComment(String comment, int id) {
+    String sql = "UPDATE comment SET content = ? where id = ?";
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+      pstmt.setString(1, comment);
+      pstmt.setInt(2, id);
+      pstmt.executeUpdate();
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  // 댓글 삭제
+  public void deleteComment(int id) {
+    String sql = "DELETE FROM comment WHERE id = ?";
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ){
+      pstmt.setInt(1, id);
+      pstmt.executeUpdate();
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  // 댓글 수 조회
   public int getCount(int id) {
     int count = 0;
     String sql = "SELECT COUNT(id) FROM comment WHERE post_id = ?";

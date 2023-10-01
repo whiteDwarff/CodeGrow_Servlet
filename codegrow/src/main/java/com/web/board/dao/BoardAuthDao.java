@@ -199,8 +199,19 @@ public class BoardAuthDao {
     } catch(Exception e) {
       e.printStackTrace();
     }
-    
-    
+  }
+  public void deleteBoard(int id) {
+    String sql = "DELETE FROM board WHERE id = ?";
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ){
+      pstmt.setInt(1, id);
+      int i = pstmt.executeUpdate();
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
   }
   public int getId(String title, String content) {
     String sql = "SELECT id FROM BOARD WHERE title = ? and content = ?";

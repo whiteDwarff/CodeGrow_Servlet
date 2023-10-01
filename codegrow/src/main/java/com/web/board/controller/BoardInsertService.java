@@ -26,6 +26,7 @@ public class BoardInsertService implements Service {
     AuthDto newBoard = new AuthDto(title, content, (int)session.getAttribute("id"));
     
     dao.insertBoard(newBoard);
+    
     int result = dao.getId(title, content);
     session.setAttribute("boardId", result);
     

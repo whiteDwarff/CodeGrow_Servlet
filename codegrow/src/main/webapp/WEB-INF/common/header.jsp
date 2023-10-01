@@ -86,5 +86,6 @@
 				</div>
 			</div>
 	</header>
+	<div id="header-empty-box"></div>
 </body>
 </html>

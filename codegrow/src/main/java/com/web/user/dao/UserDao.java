@@ -21,7 +21,7 @@ public class UserDao {
 		UserDto user = new UserDto();
 		
 		String sql = "SELECT * FROM member" +
-					 " WHERE email = ? AND password = ?";
+					 " WHERE email = ? AND password = SHA2(?, 256)";
 		// finally를 통해 con, pstmt를 닫아줄 필요 없음
 		try(
 			Connection con = ConnectionProvider.getConnection();
@@ -51,7 +51,7 @@ public class UserDao {
 	// 회원가입 
 	public int singUp(Register user) {
 	  int result = 0;
-	  String sql = "INSERT INTO member (name, email, password, phone_number) VALUES(?,?,?,?)";
+	  String sql = "INSERT INTO member (name, email, password, phone_number) VALUES(?,?,SHA2(?, 256),?)";
 	  
 	  try(
 	      Connection con = ConnectionProvider.getConnection();
