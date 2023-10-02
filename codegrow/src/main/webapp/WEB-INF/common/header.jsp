@@ -17,8 +17,8 @@
 				<c:forEach var="menu" items="${ menus }">
 				<a href="/search?group=${ menu.id }">${ menu.name }</a> 
 				</c:forEach>
-				<a href="/board">Board</a>
-				<a href="/notice">Notice</a>
+				<a href="/board?param=board">Board</a>
+				<a href="/notice?param=notice">Notice</a>
 			</nav> 
 			<div class="sub-gnb">
 				<i class="fa-solid fa-magnifying-glass header-image pointer"></i>

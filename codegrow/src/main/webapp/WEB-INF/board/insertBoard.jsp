@@ -24,6 +24,7 @@
 	<%@include file="../common/header.jsp"%>
 	
 	<section>
+	${ content }
 		<c:if test="${ not empty  content }">
 			<form method="post" action="/boardUpdate">
 				<div class="flex border-bottom padding">
@@ -43,6 +44,7 @@
 					<span class="input-label">CONTENT</span>
 					<textarea th:field="*{content}" class="summernote input" id="content" name="content">${ content.content }</textarea>
 				</div>
+				<input type="text" value="${ pm }" name="param">
 				<input type="submit" id="submit-button" class="pointer block bold" value="UPDATE">
 			</form>
 		</c:if>

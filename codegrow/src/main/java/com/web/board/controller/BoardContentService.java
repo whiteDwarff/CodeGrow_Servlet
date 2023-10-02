@@ -21,11 +21,12 @@ public class BoardContentService implements Service {
   public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     // TODO Auto-generated method stub
     req.setCharacterEncoding("utf-8");
-    
+      String param = req.getParameter("param");
       String id = req.getParameter("id");
       
       BoardAuthDao dao = BoardAuthDao.getInstance();
       BoardCommentDao contentDao = BoardCommentDao.getInstance();
+      
       CategoryDao group = CategoryDao.getInstance();
       List<CategoryDto> menus = group.setHeader();
     
@@ -33,9 +34,9 @@ public class BoardContentService implements Service {
     if(id != null && !id.isEmpty()) {
       int finalId = Integer.parseInt(id);
       
-      dao.updateHit(finalId);
+      dao.updateHit(param, finalId);
       int count = contentDao.getCount(finalId);
-      AuthDto content = dao.fetchedBoardId(finalId);
+      AuthDto content = dao.fetchedBoardId(param, finalId);
       List<ContentDto> comment = contentDao.fetchedCommentById(finalId);
       
       req.setAttribute("content", content);
@@ -43,8 +44,9 @@ public class BoardContentService implements Service {
       req.setAttribute("comment", comment);
     }
     
-    
+    req.setAttribute("pm", param);
     req.setAttribute("menus", menus);
+    req.setAttribute("pm", param);
   }
 
 }

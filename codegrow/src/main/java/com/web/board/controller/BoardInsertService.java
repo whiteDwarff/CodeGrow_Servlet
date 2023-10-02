@@ -28,7 +28,7 @@ public class BoardInsertService implements Service {
     dao.insertBoard(newBoard);
     
     int result = dao.getId(title, content);
-    session.setAttribute("boardId", result);
+    req.setAttribute("boardId", result);
     
   }
 

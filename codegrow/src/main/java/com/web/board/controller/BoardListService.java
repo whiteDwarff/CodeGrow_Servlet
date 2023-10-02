@@ -21,6 +21,8 @@ public class BoardListService implements Service {
     req.setCharacterEncoding("utf-8");
     // 옵션이 선택되지 않는 최초 접속 시 select의 default 값 할당
     String select = req.getParameter("select");
+    String param = req.getParameter("param");
+    
     if(select == null) select = "1";
     BoardAuthDao boardDao = BoardAuthDao.getInstance();
     CategoryDao group = CategoryDao.getInstance();
@@ -38,7 +40,7 @@ public class BoardListService implements Service {
     int lastNum = (int)Math.ceil((float)count / (float)numOfRecords);
     
     
-    List<AuthDto> lists = boardDao.fetchedBoardList(p, numOfRecords, select);
+    List<AuthDto> lists = boardDao.fetchedBoardList(param, p, numOfRecords, select);
     List<CategoryDto> menus = group.setHeader();
     
     req.setAttribute("lists", lists);
@@ -48,6 +50,7 @@ public class BoardListService implements Service {
     req.setAttribute("numOfPages", numOfPages);
     req.setAttribute("p", p);
     req.setAttribute("option", select);
+    req.setAttribute("pm", param);
   }
 
 }

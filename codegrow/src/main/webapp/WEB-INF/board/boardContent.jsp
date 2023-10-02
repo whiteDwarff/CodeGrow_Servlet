@@ -33,7 +33,7 @@ failedLoginInfo("${msg}");
 				<p id="content-title">❗ ${ content.title }</p>
 				<c:if test="${ sessionScope.name == content.name }">
 					<div>
-						<a href="/boardInsert?id=${ content.id }">
+						<a href="/boardInsert?param=${ pm }&id=${ content.id }">
 							<i class="fa-solid fa-pen pointer"></i>
 						</a>
 						<a href="/boardDelete?id=${ content.id }">
@@ -80,10 +80,13 @@ failedLoginInfo("${msg}");
 		<div class="add-content-wrap flex">
 			<span class="guide grey">COMMENT</span>
 			<form class="flex align-top" method="post" action="/insertComment">
-				<c:if test="${ empty sessionScope.name }">
+				<c:if test="${ pm eq 'board' && empty sessionScope.name }">
 					<textarea disabled class="grey bold">로그인 후 댓글을 작성할 수 있습니다.</textarea>
 				</c:if>
-				<c:if test="${ not empty sessionScope.name }">
+					<c:if test="${ pm eq 'notice' }">
+					<textarea disabled class="grey bold">댓글 작성을 허용하지 않는 게시판입니다.</textarea>
+				</c:if>
+				<c:if test="${ pm eq 'board' && not empty sessionScope.name }">
 					<textarea name="comment"></textarea>
 				</c:if>
 				<input value="${ content.id }" name="post_id" class="none" />

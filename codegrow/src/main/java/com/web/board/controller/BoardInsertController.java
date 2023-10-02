@@ -19,11 +19,10 @@ public class BoardInsertController extends HttpServlet {
     // TODO Auto-generated method stub
     Service service = new BoardInsertService();
     service.execute(req, resp);
-    
-    HttpSession session = req.getSession();
-    int id = (int)session.getAttribute("boardId");
-    resp.setContentType("application/json");
     resp.setCharacterEncoding("UTF-8");
+    
+    String param = (String) req.getAttribute("boardId");
+    int id = Integer.parseInt(param);
     resp.sendRedirect("/boardContent?id="+id);
   }
   

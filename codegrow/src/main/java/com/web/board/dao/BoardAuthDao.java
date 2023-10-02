@@ -19,31 +19,28 @@ public class BoardAuthDao {
   }
 
   // 게시판의 모든 데이터 조회
-  public List<AuthDto> fetchedBoardList(int p, int numOfRecords, String select) {
+  public List<AuthDto> fetchedBoardList(String param, int p, int numOfRecords, String select) {
     String sql = "";
-    System.out.println(select);
     
     if(select == null || select.equals("1")) {
        sql = "SELECT b.id, b.title, b.content, b.author_id, b.created_at, "+
-       "b.hit, m.name FROM board b JOIN member m on b.author_id = m.id ORDER BY b.id DESC LIMIT ?, ?";
+       "b.hit, m.name FROM "+ param + " b JOIN member m on b.author_id = m.id ORDER BY b.id DESC LIMIT ?, ?";
     } else if(select.equals("2")) {
       sql = "SELECT b.id, b.title, b.content, b.author_id, b.created_at, "+
-          "b.hit, m.name FROM board b JOIN member m on b.author_id = m.id LIMIT ?, ?";
+          "b.hit, m.name FROM "+ param + " b JOIN member m on b.author_id = m.id LIMIT ?, ?";
     } else if(select.equals("3")) {
       sql = "SELECT b.id, b.title, b.content, b.author_id, b.created_at, "+
-          "b.hit, m.name FROM board b JOIN member m on b.author_id = m.id ORDER BY b.hit DESC LIMIT ?, ?";
+          "b.hit, m.name FROM " + param + " b JOIN member m on b.author_id = m.id ORDER BY b.hit DESC LIMIT ?, ?";
     } else {
       sql = "SELECT b.id, b.title, b.content, b.author_id, b.created_at, "+
-          "b.hit, m.name FROM board b JOIN member m on b.author_id = m.id ORDER BY b.hit LIMIT ?, ?";
+          "b.hit, m.name FROM " + param + " b JOIN member m on b.author_id = m.id ORDER BY b.hit LIMIT ?, ?";
     }
   
     List<AuthDto> contents = new ArrayList<AuthDto>();
-    
     try(
         Connection con = ConnectionProvider.getConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
         ){
-      
       pstmt.setInt(1,  (p-1) * numOfRecords);
       pstmt.setInt(2, numOfRecords);
       
@@ -69,9 +66,9 @@ public class BoardAuthDao {
     return contents;
   }
   // 하나의 게시글 조회
-  public AuthDto fetchedBoardId(int id) {
+  public AuthDto fetchedBoardId(String param, int id) {
     String sql =  "SELECT b.id, b.title, b.content, b.author_id, b.created_at, "+
-        "b.hit, m.name FROM board b JOIN member m on b.author_id = m.id WHERE b.id = ?";
+        "b.hit, m.name FROM " + param +" b JOIN member m on b.author_id = m.id WHERE b.id = ?";
     AuthDto board = new AuthDto();
     try(
         Connection con = ConnectionProvider.getConnection();
@@ -97,28 +94,30 @@ public class BoardAuthDao {
     return board;
   }
   // 게시판 검색기능
-  public List<AuthDto> fechedSearchList(String param, String keyword) {
+  public List<AuthDto> fechedSearchList(String param, String option, String keyword) {
     List<AuthDto> contents = new ArrayList<AuthDto>();
     String sql ="";
-    if(param.equals("title")) {
+    if(option.equals("title")) {
      sql = "SELECT b.id, b.title, b.content, b.author_id, b.created_at, b.hit, m.name "
-         + "FROM board b "
+         + "FROM " + param + " b "
          + "JOIN member m ON b.author_id = m.id "
          + "WHERE b.title LIKE ? "
          + "ORDER BY b.id DESC";
-    } else if(param.equals("name")) {
-       sql = " SELECT b.id, b.title, b.content, b.author_id, b.created_at, b.hit, m.name "
-           + "FROM board b "
+    } else if(option.equals("name")) {
+      sql = "SELECT b.id, b.title, b.content, b.author_id, b.created_at, b.hit, m.name "
+           + "FROM " + param + " b "
            + "JOIN member m ON b.author_id = m.id "
-           + "WHERE m.name LIKE ?"
+           + "WHERE m.name LIKE ? "
            + "ORDER BY b.id DESC";
     }
     try(
         Connection con = ConnectionProvider.getConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
         ) {
-      
       pstmt.setString(1, "%"+keyword+"%");
+      System.out.println(sql);
+      System.out.println(keyword);
+      System.out.println(option);
       
       try(ResultSet rs = pstmt.executeQuery();) {
         while(rs.next()) {
@@ -158,8 +157,8 @@ public class BoardAuthDao {
     return count;
   }
   // 조회수 업로드
-  public void updateHit(int id) {
-    String sql = "UPDATE board SET HIT = HIT + 1 WHERE id = ?";
+  public void updateHit(String param, int id) {
+    String sql = "UPDATE "+ param +" SET HIT = HIT + 1 WHERE id = ?";
     
     try(Connection con = ConnectionProvider.getConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
@@ -181,7 +180,7 @@ public class BoardAuthDao {
       pstmt.setString(1, dto.getTitle());
       pstmt.setString(2, dto.getContent());
       pstmt.setInt(3, dto.getAuthor_id());
-      int i = pstmt.executeUpdate();
+      pstmt.executeUpdate();
     } catch(Exception e) {
       e.printStackTrace();
     }

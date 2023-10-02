@@ -19,34 +19,18 @@ public class BoardSearchService implements Service {
   public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     // TODO Auto-generated method stub
     req.setCharacterEncoding("utf-8");
-    BoardAuthDao boardDao = BoardAuthDao.getInstance();
-    CategoryDao group = CategoryDao.getInstance();
-    
-    //int count = boardDao.recordCount(); // 전체 레코드의 개수
-    //int numOfRecords = 10; // 한번에 가져올 레코드의 개수 
-    //int numOfPages = 5;    // 한 화면에 표시될 페이지의 개수
-    
-    String page = req.getParameter("p");
-    int p = 1;
-    
-    if(page != null && !page.equals("")) p = Integer.parseInt(page);
-    
-    //int startNum = p - ((p-1) % numOfPages);
-    //int lastNum = (int)Math.ceil((float)count / (float)numOfRecords);
-    
+    String param = req.getParameter("param");
     String option = req.getParameter("option");
     String content = req.getParameter("content");
     
-    List<AuthDto> lists = boardDao.fechedSearchList(option, content);
+    BoardAuthDao boardDao = BoardAuthDao.getInstance();
+    CategoryDao group = CategoryDao.getInstance();
+    
+    List<AuthDto> lists = boardDao.fechedSearchList(param, option, content);
     List<CategoryDto> menus = group.setHeader();
     
     req.setAttribute("lists", lists);
     req.setAttribute("menus", menus);
-    //req.setAttribute("startNum", startNum);
-    //req.setAttribute("lastNum", lastNum);
-    //req.setAttribute("numOfPages", numOfPages);
-    req.setAttribute("p", p);
+    req.setAttribute("pm", param);
     }
-  
-
 }

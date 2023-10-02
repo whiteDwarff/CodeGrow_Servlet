@@ -28,6 +28,7 @@ failedLoginInfo("${msg}");
 					<option value="3" class="align-option">조회수높은순</option>
 					<option value="4" class="align-option">조회수낮은순</option>
 				</select>
+				<input value="${ pm }" name="param" class="none">
 			</form>
 			<!-- table header -->
 			<table class="table table-hover">
@@ -42,7 +43,7 @@ failedLoginInfo("${msg}");
 				<c:forEach var="list" items="${ lists }" >
 				<tr>
 					<td class="number">${list.id}</td>
-					<td class="post-title"><a href="/boardContent?id=${ list.id }">${ list.title }</a></td>
+					<td class="post-title"><a href="/boardContent?param=${ pm }&id=${ list.id }">${ list.title }</a></td>
 					<td class="post-author">${ list.name }</td>
 					<td class="post-date">${ list.created_at }</td>
 					<td>${list.hit }</td>
@@ -70,7 +71,7 @@ failedLoginInfo("${msg}");
     			</a>
     			<c:forEach var="i" begin="${startNum}" end="${startNum + numOfPages - 1}" step="1">
         		<c:if test="${i <= lastNum}">
-            	<a href="/board?p=${i}&select=${option}" class="page-num">${i}</a>
+            	<a href="/board?param=${ pm }&p=${i}&select=${option}" class="page-num">${i}</a>
         		</c:if>
     			</c:forEach>
     			<a href="/board?p=${p+1}" id="next">
@@ -87,6 +88,7 @@ failedLoginInfo("${msg}");
 					<option value="name">작성자</option>
 				</select>
 				<input type="text" name="content" id="form-value">
+				<input type="text" name="param" value="${ pm }" class="none">
 				<div id="button-wrap" class="text-align">
 					<button id="search-button" class="pointer hover">검색</button>
 					<c:if test="${ not empty sessionScope.name }">
