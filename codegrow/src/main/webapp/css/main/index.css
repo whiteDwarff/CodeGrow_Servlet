@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+body {
+	font-size: 10px;
+}
 /* 모든 scroll 영역의 scoll 숨김 */
 ::-webkit-scrollbar {
     display: none; 
@@ -14,7 +16,6 @@ section span {
     display: block;
     margin-top: 15px;
     font-size: 14px;
-    font-weight: 700;
 }
 .section-wrap {
     width: 60%;
@@ -86,7 +87,7 @@ article {
     height: 55px;
 }
 .url-content {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 12px;
     height: 15%;
     margin: 10px 0;

@@ -9,18 +9,17 @@
 </head>
 <body>
 <header id="header">
-		<div class="header-wrap flex between">
+		<div id="header-wrap" class="flex between">
 			<nav class="flex align">
-			<h1>
+			<h1 id="header-title">
 				<a href="/index">CodeGrow</a>
 			</h1>
 				<c:forEach var="menu" items="${ menus }">
 				<a href="/search?group=${ menu.id }">${ menu.name }</a> 
 				</c:forEach>
-				<!-- 서블릿 필요 -->
 				<a href="/board">Board</a>
-				<a href="notice">Notice</a>
-			</nav> <!-- nav -->
+				<a href="/notice">Notice</a>
+			</nav> 
 			<div class="sub-gnb">
 				<i class="fa-solid fa-magnifying-glass header-image pointer"></i>
 				<i class="fa-solid fa-user header-image pointer"></i>
@@ -30,7 +29,7 @@
 		
 		<div id="search-box">
 			<div class="header-slide-wrap">
-				<form action="search" method="post" id="header-search-form">
+				<form action="/search" method="post" id="header-search-form">
 					<i class="fa-solid fa-magnifying-glass" id="header-input-image" class="inline" ></i>
 					<input type="text"
 						placeholder="codegrow.com 검색하기" name="title" id="header-search-input">
@@ -78,7 +77,7 @@
 								</div>
 								<div class="flex">
 									<i class="fa-solid fa-right-to-bracket inline"></i>
-									<a href='/logout'>로그인</a>
+									<a href="/logout" id="logout">로그아웃</a>
 								</div>
 						</c:otherwise>
           </c:choose>

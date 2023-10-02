@@ -74,7 +74,7 @@ tr:last-child {
 
 #search-form {
 	width: 50%;
-	margin: 0 auto;
+	margin: 2rem auto 0 auto;
 	border: 1px solid #000;
 }
 #search-form > * {
@@ -108,7 +108,7 @@ tr:last-child {
 	text-underline-position : under;
 }
 #page-nation {
-	margin: 2rem 0;
+	margin-top: 2rem;
 }
 #page-nation a {
 	display: block;

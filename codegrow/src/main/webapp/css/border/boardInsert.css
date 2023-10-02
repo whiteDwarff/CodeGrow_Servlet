@@ -1,12 +1,4 @@
 @charset "UTF-8";
-* {
-	margin: 0;
-	padding: 0;
-	color: black;
-	text-decoration: none;
-	list-style: none;
-	box-sizing: border-box;
-}
 body {
 	font-size: 10px;
 }
@@ -16,11 +8,7 @@ section {
 	width: 60%;
 	margin: 0 auto;
 }
-.flex {
-	margin-bottom: 1rem;
-	padding: 1rem 0;
-}
-.label {
+.input-label {
 	display: block;
 	width: 20%;
 	font-size: 0.7rem;
@@ -37,12 +25,40 @@ textarea {
 	height: 10rem;
 }
 #submit-button {
-	padding: 1rem;
-	/*margin-left: auto;*/
+	padding: 1.5rem 2.5rem;
 	margin: 3rem 0 0 auto;
 	border: none;
 	border-radius: 10px;
 	outline: none;
 	background-color: #73d09a;	
 	color: #fff;
+}
+.padding {
+	padding: 1.5rem 0;
+}
+
+
+/* summer note */
+#header-wrap > nav a {
+	font-size: 11.2px;
+}
+.note-toolbar {
+	display: flex;
+	justify-content: space-around;
+}
+.note-editable span{
+	display: inline;
+}
+.note-resizebar { display: none; }
+.note-btn {
+	height: 4rem;
+}
+body > section > form > div.flex.border-bottom.align-top > div > div.note-toolbar.panel-heading > div.note-btn-group.btn-group.note-fontname > div > button {
+	width: 10rem;
+}
+.note-editor {
+	width: 80%;
+}
+h1 {
+	font-weight: bold;
 }

@@ -95,6 +95,20 @@ public class BoardCommentDao {
       e.printStackTrace();
     }
   }
+  // 게시글 삭제 시 댓글까지 삭제 
+  public void deleteBoardCommenct(int id) {
+    String sql = "DELETE FROM comment WHERE post_id = ?";
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+      pstmt.setInt(1, id);
+      pstmt.executeUpdate();
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
   // 댓글 수 조회
   public int getCount(int id) {
     int count = 0;

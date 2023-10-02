@@ -9,7 +9,7 @@
 <script src="https://kit.fontawesome.com/08a7424104.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./css/ohter/common.css">
 <link rel="stylesheet" href="./css/ohter/header.css">
-<link rel="stylesheet" href="./css/border/border.css">
+<link rel="stylesheet" href="./css/border/board.css">
 <script type="module">
 import { failedLoginInfo } from "./script/member/index.js";
 failedLoginInfo("${msg}");
@@ -19,6 +19,7 @@ failedLoginInfo("${msg}");
 	<%@include file="../common/header.jsp"%>
 	
 	<section id="board-section">
+		<!-- 게시판 정렬 옵션 -->
 		<article class="board-list">
 			<form method="get" action="/board" id="align-option">
 				<select name="select" onchange="this.form.submit()">
@@ -28,6 +29,7 @@ failedLoginInfo("${msg}");
 					<option value="4" class="align-option">조회수낮은순</option>
 				</select>
 			</form>
+			<!-- table header -->
 			<table class="table table-hover">
 				<tr class="post-item">
 					<th class="post-number">번호</th>
@@ -55,20 +57,29 @@ failedLoginInfo("${msg}");
 				</div>
 			</c:if>
 	</section>
+	
+	
+	
 	<section id="ohter">
+  	<c:if test="${ not empty startNum && not empty numOfPages}">
 			<!-- #### pageNation #### -->
 			<div id="page-nation" class="flex center">
 				<ul class="flex">
-    			<a href="/board?p=${p - 1}" id="prev"><i class="fa-solid fa-chevron-left"></i></a>
+    			<a href="/board?p=${p - 1}" id="prev">
+    				<i class="fa-solid fa-chevron-left"></i>
+    			</a>
     			<c:forEach var="i" begin="${startNum}" end="${startNum + numOfPages - 1}" step="1">
         		<c:if test="${i <= lastNum}">
             	<a href="/board?p=${i}&select=${option}" class="page-num">${i}</a>
         		</c:if>
     			</c:forEach>
-    			<a href="/board?p=${p+1}" id="next"><i class="fa-solid fa-chevron-right"></i></a>
+    			<a href="/board?p=${p+1}" id="next">
+    				<i class="fa-solid fa-chevron-right"></i>
+    			</a>
 				</ul>
 			</div>
 			<!-- ########## -->
+		</c:if>
 			
 			<form method="post" action="/board" id="search-form" class="flex">
 				<select name="option">
@@ -95,14 +106,16 @@ failedLoginInfo("${msg}");
 		selectOptionHandelr,
 } from "./script/board/boardList.js";	
 
-	const pageValue = ${p};
-	const lastValue = ${lastNum};
-	const option = ${option};
-  currentPaging(pageValue); 
-	hiddenPrevButton(pageValue);
-	searchBoardList();
-	hiddenNextButton(pageValue, lastValue)
-	selectOptionHandelr(option);
+		const pageValue = ${p};
+		const lastValue = '${lastNum}';
+		const option = '${option}';	
+		if(lastValue) {
+  		currentPaging(pageValue); 
+			hiddenPrevButton(pageValue);
+			searchBoardList();
+			hiddenNextButton(pageValue, lastValue)
+			selectOptionHandelr(option);
+		}
 </script>
 
 </body>

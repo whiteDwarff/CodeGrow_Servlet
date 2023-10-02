@@ -1,12 +1,4 @@
 @charset "UTF-8";
-* {
-	margin: 0;
-	padding: 0;
-	color: black;
-	text-decoration: none;
-	list-style: none;
-	box-sizing: border-box;
-}
 body {
 	font-size: 10px;
 }
@@ -30,10 +22,13 @@ span {display: block;}
 }
 #title-wrap > div i:last-child {
 	display: inline-block;
-	margin-left: 1rem;
+	margin-left: 2rem;
 }
-h3 {
-	font-size: 1.4rem;
+#title-wrap > div > a > i{
+	font-size: 1.5rem;
+}
+#content-title {
+	font-size: 3rem;
 }
 .qna-wrap {
 	padding: 1rem 0;
@@ -43,13 +38,13 @@ h3 {
 #last-wrap {
 	border-bottom: 1px solid #999;
 }
-.label {
+.guide {
 	width: 20%;
 	padding: 0 2rem;
 }
-.qna-wrap .label i {
+.qna-wrap .guide i {
 	display: inline-block;
-	margin-right: 0.6rem;
+	margin-right: 2rem;
 }
 .grey {
 	color: grey;
@@ -65,10 +60,10 @@ h3 {
 .comment-card {
 	border: 1px solid #999;
 	padding: 1rem 0 2rem 0;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 .comment-button-wrap {
-	width: 10%;
+	padding-right: 2rem;
 	margin-left: auto;
 	font-size: 0.7rem;
 }
@@ -87,7 +82,6 @@ h3 {
 }
 .comment-content {
 	font-size: 0.8rem;
-	margin-top: 0.7rem;
 }
 
 /* 댓글 작성 */
@@ -96,15 +90,18 @@ h3 {
 	margin: 0 auto 3rem auto;
 	padding: 3rem 0;
 }
+form {
+	width: 100%;
+}
 textarea {
-	width: 63%;
+	width: 90%;
 	height: 3rem;
 	resize: none;
 	outline: none;
 	margin-right: 2%;
-	padding: 1rem;
+	padding-left: 1rem;
 }
-#submit-button {
+.submit-button {
 	height: 3rem;
 	width: 10%;
 	outline: none;
@@ -114,7 +111,18 @@ textarea {
 	margin-right: 5%;
 	transition: .5s ease-in;
 }
-#submit-button:hover {
+.submit-button:hover {
 	background-color: #73d09a;
 	transition: .5s ease-in;
+}
+.margin-bottom {
+	margin-bottom: 1rem;
+}
+
+/* summer note */
+#header-wrap > nav a {
+	font-size: 11.2px;
+}
+h1 {
+	font-weight: bold;
 }

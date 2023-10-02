@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="./css/ohter/common.css">
 <link rel="stylesheet" href="./css/ohter/header.css">
 <link rel="stylesheet" href="./css/main/index.css">
+<script type="module">
+import { failedLoginInfo } from "./script/member/index.js";
+failedLoginInfo("${msg}");
+</script>
 </head>
 <body>
 

@@ -6,8 +6,6 @@ const headerImage = document.getElementsByClassName('header-image'),
 			headerSearchInput = document.getElementById('header-search-input');
 let isHeaderState = true;
 
-
-
 for(let i=0; i<headerImage.length; i++) {
 	headerImage[i].addEventListener('click', () => {
 		
@@ -22,6 +20,10 @@ for(let i=0; i<headerImage.length; i++) {
 			for(let item of section) item.style.filter = 'none';
 		}
 		isHeaderState = !isHeaderState;
-		
 	})
 }
+const logout = document.getElementById('logout');
+if(logout)
+	logout.addEventListener('click', e => {
+		return confirm('로그아웃 하시겠습니까?') ? alert('로그아웃 되었습니다.') : e.preventDefault();
+	})

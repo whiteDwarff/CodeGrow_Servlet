@@ -22,17 +22,17 @@ public class BoardSearchService implements Service {
     BoardAuthDao boardDao = BoardAuthDao.getInstance();
     CategoryDao group = CategoryDao.getInstance();
     
-    int count = boardDao.recordCount(); // 전체 레코드의 개수
-    int numOfRecords = 10; // 한번에 가져올 레코드의 개수 
-    int numOfPages = 5;    // 한 화면에 표시될 페이지의 개수
+    //int count = boardDao.recordCount(); // 전체 레코드의 개수
+    //int numOfRecords = 10; // 한번에 가져올 레코드의 개수 
+    //int numOfPages = 5;    // 한 화면에 표시될 페이지의 개수
     
     String page = req.getParameter("p");
     int p = 1;
     
     if(page != null && !page.equals("")) p = Integer.parseInt(page);
     
-    int startNum = p - ((p-1) % numOfPages);
-    int lastNum = (int)Math.ceil((float)count / (float)numOfRecords);
+    //int startNum = p - ((p-1) % numOfPages);
+    //int lastNum = (int)Math.ceil((float)count / (float)numOfRecords);
     
     String option = req.getParameter("option");
     String content = req.getParameter("content");
@@ -42,9 +42,9 @@ public class BoardSearchService implements Service {
     
     req.setAttribute("lists", lists);
     req.setAttribute("menus", menus);
-    req.setAttribute("startNum", startNum);
-    req.setAttribute("lastNum", lastNum);
-    req.setAttribute("numOfPages", numOfPages);
+    //req.setAttribute("startNum", startNum);
+    //req.setAttribute("lastNum", lastNum);
+    //req.setAttribute("numOfPages", numOfPages);
     req.setAttribute("p", p);
     }
   
