@@ -19,9 +19,10 @@ public class BoardUpdateController extends HttpServlet{
     Service service = new BoardUpdateService();
     service.execute(req, resp);
     
-    HttpSession session = req.getSession();
-    int id = (int)session.getAttribute("boardId");
-    resp.sendRedirect("/boardContent?id="+id);
+    String param = (String) req.getAttribute("pm");
+    Integer id = (Integer) req.getAttribute("boardId");
+    
+    resp.sendRedirect("/boardContent?param="+param+"&id="+id);
   }
 
 }

@@ -25,7 +25,8 @@ public class BoardController extends HttpServlet{
     Service service = new BoardSearchService();
     service.execute(req, resp);
     String param = (String) req.getAttribute("pm");
-    resp.sendRedirect("/board?param="+param);
+    //resp.sendRedirect("/board?param="+param);
+    req.getRequestDispatcher("/WEB-INF/board/BoardList.jsp?param="+param).forward(req, resp);
   }
 
 }

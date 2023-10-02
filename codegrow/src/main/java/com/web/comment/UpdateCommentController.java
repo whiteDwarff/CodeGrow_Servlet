@@ -19,9 +19,8 @@ public class UpdateCommentController extends HttpServlet{
     Service service = new UpdateCommentService();
     service.execute(req, resp);
     
-    HttpSession session = req.getSession();
-    int id = (int)session.getAttribute("board_id");
-    resp.sendRedirect("boardContent?id="+id);
+    Integer id = (Integer) req.getAttribute("boardId");
+    resp.sendRedirect("boardContent?param=board&id="+id);
   }
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,10 +28,9 @@ public class UpdateCommentController extends HttpServlet{
     Service service = new DeleteCommentService();
     service.execute(req, resp);
     
-    HttpSession session = req.getSession();
-    int id = (int)session.getAttribute("board_id");
+    Integer id = (Integer) req.getAttribute("boardId");
     req.setAttribute("msg", "댓글이 삭제되었습니다.");
-    req.getRequestDispatcher("/boardContent?id="+id).forward(req, resp);
+    req.getRequestDispatcher("/boardContent?param=board&id="+id).forward(req, resp);
   }
 
 }

@@ -19,8 +19,7 @@ public class InsertCommentController extends HttpServlet{
     Service service = new InsertCommentService();
     service.execute(req, resp);
     
-    HttpSession session = req.getSession();
-    int id = (int)session.getAttribute("board_id");
-    resp.sendRedirect("/boardContent?id="+id);
+    Integer id = (Integer) req.getAttribute("boardId");
+    resp.sendRedirect("/boardContent?param=board&id="+id);
   }
 }

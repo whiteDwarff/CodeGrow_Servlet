@@ -27,7 +27,7 @@ public class BoardListService implements Service {
     BoardAuthDao boardDao = BoardAuthDao.getInstance();
     CategoryDao group = CategoryDao.getInstance();
     
-    int count = boardDao.recordCount(); // 전체 레코드의 개수
+    int count = boardDao.recordCount(param); // 전체 레코드의 개수
     int numOfRecords = 10; // 한번에 가져올 레코드의 개수 
     int numOfPages = 5;    // 한 화면에 표시될 페이지의 개수
     

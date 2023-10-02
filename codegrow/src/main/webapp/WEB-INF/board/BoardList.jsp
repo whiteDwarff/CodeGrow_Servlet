@@ -91,8 +91,11 @@ failedLoginInfo("${msg}");
 				<input type="text" name="param" value="${ pm }" class="none">
 				<div id="button-wrap" class="text-align">
 					<button id="search-button" class="pointer hover">검색</button>
-					<c:if test="${ not empty sessionScope.name }">
-		 			<a href="/boardInsert" id="qna-button" class="pointer hover">문의하기</a>
+					<c:if test="${ not empty sessionScope.name && pm eq 'board'}">
+		 				<a href="/boardInsert?param=${ pm }" id="qna-button" class="pointer hover">문의하기</a>
+		 			</c:if>
+		 			<c:if test="${ not empty sessionScope.name && sessionScope.name eq '관리자' && pm eq 'notice'}">
+		 				<a href="/boardInsert?param=${ pm }" id="qna-button" class="pointer hover">작성하기</a>
 		 			</c:if>
 				</div>
 			</form>

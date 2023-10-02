@@ -22,8 +22,7 @@ public class DeleteCommentService implements Service {
     BoardCommentDao dao = BoardCommentDao.getInstance();
     dao.deleteComment(comment_id);
     
-    HttpSession session = req.getSession();
-    session.setAttribute("board_id", board_id);
+    req.setAttribute("boardId", board_id);
   }
 
 }

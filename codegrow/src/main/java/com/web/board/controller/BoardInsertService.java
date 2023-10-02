@@ -21,14 +21,16 @@ public class BoardInsertService implements Service {
     HttpSession session = req.getSession();
     String title = req.getParameter("title");
     String content = req.getParameter("content");
+    String param = req.getParameter("param");
     
     BoardAuthDao dao = BoardAuthDao.getInstance();
     AuthDto newBoard = new AuthDto(title, content, (int)session.getAttribute("id"));
     
-    dao.insertBoard(newBoard);
+    dao.insertBoard(param, newBoard);
     
-    int result = dao.getId(title, content);
+    int result = dao.getId(param, title, content);
     req.setAttribute("boardId", result);
+    req.setAttribute("pm", param);
     
   }
 

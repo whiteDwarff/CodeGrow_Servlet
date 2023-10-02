@@ -36,7 +36,7 @@ failedLoginInfo("${msg}");
 						<a href="/boardInsert?param=${ pm }&id=${ content.id }">
 							<i class="fa-solid fa-pen pointer"></i>
 						</a>
-						<a href="/boardDelete?id=${ content.id }">
+						<a href="/boardDelete?param=${ pm }&id=${ content.id }">
 							<i class="fa-solid fa-trash pointer"></i>
 						</a>
 					</div>
@@ -63,7 +63,10 @@ failedLoginInfo("${msg}");
 			<div id="last-wrap" class="qna-wrap flex">
 				<span class="guide grey">
 					<i class="fa-solid fa-check grey"></i>댓글수
-				</span> 
+				</span>
+				<c:if test="${ pm eq 'notice' }">
+					<span class="grey">0</span>
+				</c:if>
 				<span class="grey">${ count }</span>
 			</div>
 			<div id="content">
@@ -79,7 +82,7 @@ failedLoginInfo("${msg}");
 	<section id="add-content">
 		<div class="add-content-wrap flex">
 			<span class="guide grey">COMMENT</span>
-			<form class="flex align-top" method="post" action="/insertComment">
+			<form id="add-comment" class="flex align-top" method="post" action="/insertComment">
 				<c:if test="${ pm eq 'board' && empty sessionScope.name }">
 					<textarea disabled class="grey bold">로그인 후 댓글을 작성할 수 있습니다.</textarea>
 				</c:if>
@@ -108,8 +111,7 @@ failedLoginInfo("${msg}");
 								<!-- 댓글 수정 버튼 -->
 								<i class="fa-solid fa-pen pointer update-button"></i>
 								<!-- 댓글 삭제 버튼 -->
-								<a
-									href="/updateComment?comment_id=${list.id }&board_id=${ content.id  }">
+								<a href="/updateComment?comment_id=${list.id }&board_id=${ content.id  }" class="delete-button">
 									<i class="fa-solid fa-trash pointer"></i>
 								</a>
 							</div>
@@ -141,10 +143,16 @@ failedLoginInfo("${msg}");
 	</section>
 	</c:if>
 
-	<script src="./script/ohter/header.js"></script>
-	<script type="module">
-import { updateComment } from "./script/board/boardContent.js"
+<script src="./script/ohter/header.js"></script>
+<script type="module">
+import { 
+	updateComment,
+	deleteComment,
+	submitComment,
+ } from "./script/board/boardContent.js"
 updateComment();
+deleteComment();
+submitComment();
 
 </script>
 </body>

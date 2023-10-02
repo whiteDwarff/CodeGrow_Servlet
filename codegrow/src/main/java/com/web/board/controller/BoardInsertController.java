@@ -21,9 +21,9 @@ public class BoardInsertController extends HttpServlet {
     service.execute(req, resp);
     resp.setCharacterEncoding("UTF-8");
     
-    String param = (String) req.getAttribute("boardId");
-    int id = Integer.parseInt(param);
-    resp.sendRedirect("/boardContent?id="+id);
+    Integer id = (Integer) req.getAttribute("boardId");
+    String param = (String) req.getAttribute("pm");
+    resp.sendRedirect("/boardContent?param="+param+"&id="+id);
   }
   
   @Override

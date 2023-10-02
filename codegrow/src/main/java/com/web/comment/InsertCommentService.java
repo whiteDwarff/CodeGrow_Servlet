@@ -24,7 +24,7 @@ public class InsertCommentService implements Service {
     
     BoardCommentDao dao = BoardCommentDao.getInstance();
     dao.insertComment(comment, post_id, author_id);
-    session.setAttribute("board_id", post_id);
+    req.setAttribute("boardId", post_id);
 
   }
 

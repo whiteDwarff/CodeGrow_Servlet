@@ -23,7 +23,7 @@ public class BoardCommentDao {
     String sql = "SELECT c.id, c.content, c.created_at, m.name "
         + "FROM comment c "
         + "JOIN member m ON c.author_id = m.id "
-        + "WHERE post_id = ?";
+        + "WHERE post_id = ? ORDER BY c.id DESC";
     
     List<ContentDto> lists = new ArrayList<ContentDto>();
     

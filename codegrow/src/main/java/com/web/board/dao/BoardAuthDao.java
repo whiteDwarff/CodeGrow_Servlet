@@ -115,9 +115,6 @@ public class BoardAuthDao {
         PreparedStatement pstmt = con.prepareStatement(sql);
         ) {
       pstmt.setString(1, "%"+keyword+"%");
-      System.out.println(sql);
-      System.out.println(keyword);
-      System.out.println(option);
       
       try(ResultSet rs = pstmt.executeQuery();) {
         while(rs.next()) {
@@ -140,9 +137,9 @@ public class BoardAuthDao {
     return contents;
   }
   // 게시판의 모든 게시글의 개수 조회 
-  public int recordCount() {
+  public int recordCount(String param) {
     int count = 0;
-    String sql = "SELECT count(id) FROM BOARD";
+    String sql = "SELECT count(id) FROM " + param;
     
     try(
         Connection con = ConnectionProvider.getConnection();
@@ -170,8 +167,8 @@ public class BoardAuthDao {
     }
   }
   // 게시글 작성
-  public void insertBoard(AuthDto dto) {
-    String sql = "INSERT INTO board (title, content, author_id) VALUES (?, ?, ?)";
+  public void insertBoard(String param, AuthDto dto) {
+    String sql = "INSERT INTO " + param +  " (title, content, author_id) VALUES (?, ?, ?)";
     
     try(
         Connection con = ConnectionProvider.getConnection();
@@ -185,8 +182,9 @@ public class BoardAuthDao {
       e.printStackTrace();
     }
   }
-  public void updateBoard(String title, String content, int id) {
-    String sql = "UPDATE BOARD SET title=?, content=? where id=?";
+  // 게시글 수정
+  public void updateBoard(String param, String title, String content, int id) {
+    String sql = "UPDATE " + param + " SET title=?, content=? where id=?";
     try(
         Connection con = ConnectionProvider.getConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
@@ -194,26 +192,28 @@ public class BoardAuthDao {
       pstmt.setString(1, title);
       pstmt.setString(2, content);
       pstmt.setInt(3, id);
-      int i = pstmt.executeUpdate();
+      pstmt.executeUpdate();
     } catch(Exception e) {
       e.printStackTrace();
     }
   }
-  public void deleteBoard(int id) {
-    String sql = "DELETE FROM board WHERE id = ?";
+  // 게시글 삭제
+  public void deleteBoard(String param, int id) {
+    String sql = "DELETE FROM " + param + " WHERE id = ?";
     try(
         Connection con = ConnectionProvider.getConnection();
         PreparedStatement pstmt = con.prepareStatement(sql);
         ){
       pstmt.setInt(1, id);
-      int i = pstmt.executeUpdate();
+      pstmt.executeUpdate();
       
     } catch(Exception e) {
       e.printStackTrace();
     }
   }
-  public int getId(String title, String content) {
-    String sql = "SELECT id FROM BOARD WHERE title = ? and content = ?";
+
+  public int getId(String param, String title, String content) {
+    String sql = "SELECT id FROM " + param + " WHERE title = ? and content = ?";
     int count = 0;
     try(
         Connection con = ConnectionProvider.getConnection();

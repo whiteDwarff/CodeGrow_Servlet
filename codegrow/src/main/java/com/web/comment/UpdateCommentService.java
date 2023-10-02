@@ -20,11 +20,11 @@ public class UpdateCommentService implements Service {
     int comment_id = Integer.parseInt(req.getParameter("comment_id"));
     int board_id = Integer.parseInt(req.getParameter("board_id"));
     
-    HttpSession session = req.getSession();
-    session.setAttribute("board_id", board_id);
     
     BoardCommentDao dao = BoardCommentDao.getInstance();
     dao.updateComment(comment, comment_id);
+    
+    req.setAttribute("boardId", board_id);
   }
 
 }

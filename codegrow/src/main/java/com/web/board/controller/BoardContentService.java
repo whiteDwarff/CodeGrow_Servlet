@@ -30,21 +30,21 @@ public class BoardContentService implements Service {
       CategoryDao group = CategoryDao.getInstance();
       List<CategoryDto> menus = group.setHeader();
     
-    // insertBoard를 분기처리 하기 위해 id가 있는 경우 req 객체에 저장하여 포워딩 하기 위함
+    // insertBoard를 분기처리 하기 위해 id가 있는 경우 req 객체에 저장하여 포워딩 
     if(id != null && !id.isEmpty()) {
       int finalId = Integer.parseInt(id);
-      
       dao.updateHit(param, finalId);
-      int count = contentDao.getCount(finalId);
       AuthDto content = dao.fetchedBoardId(param, finalId);
-      List<ContentDto> comment = contentDao.fetchedCommentById(finalId);
       
       req.setAttribute("content", content);
-      req.setAttribute("count", count);
-      req.setAttribute("comment", comment);
+      // board 게시판이면 댓글 찾기
+      if(param.equals("board")) {
+        int count = contentDao.getCount(finalId);
+        List<ContentDto> comment = contentDao.fetchedCommentById(finalId);
+        req.setAttribute("count", count);
+        req.setAttribute("comment", comment);
+      }
     }
-    
-    req.setAttribute("pm", param);
     req.setAttribute("menus", menus);
     req.setAttribute("pm", param);
   }

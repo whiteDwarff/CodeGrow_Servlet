@@ -19,13 +19,15 @@ public class BoardUpdateService implements Service {
     req.setCharacterEncoding("utf-8");
     String title = req.getParameter("title");
     String contentValue = req.getParameter("content");
+    String param = req.getParameter("param");
+    
     int id = Integer.parseInt(req.getParameter("id"));
     
     BoardAuthDao dao = BoardAuthDao.getInstance();
-    dao.updateBoard(title, contentValue, id);
+    dao.updateBoard(param, title, contentValue, id);
     
-    HttpSession session = req.getSession();
-    session.setAttribute("boardId", id);
+    req.setAttribute("boardId", id);
+    req.setAttribute("pm", param);
   }
 
 }
