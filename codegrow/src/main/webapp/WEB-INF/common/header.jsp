@@ -73,7 +73,7 @@
 								</div>
 								<div class="flex">
 									<i class="fa-solid fa-user inline"></i>
-									<a href='/updateInfo'>계정</a>
+									<a href="/updateInfo">계정</a>
 								</div>
 								<div class="flex">
 									<i class="fa-solid fa-right-to-bracket inline"></i>

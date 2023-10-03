@@ -39,21 +39,22 @@ failedLoginInfo("${msg}");
 		
 		<article id="account">
 			<div class="form-wrapper">
-			<h6 class="title">CREATE ACCOUNT</h6>
+		<%-- 	<h6 class="title">CREATE ACCOUNT</h6>
 				<form method="post" action="/join" id="join-form">
-					<%@include file="./account.jsp"%>
 					<input type="submit" value="JOIN US" id="join-submit" class="pointer">
-				</form>
+				</form> --%>
+					<%@include file="./account.jsp"%>
 			</div>
 		</article>
-		
 		</div>
 	</section>
-<script src="./script/ohter/header.js"></script>
-<script type="module">
-import { submitLoginInfo, submitAccountInfo } from "./script/member/index.js";
-submitLoginInfo();
-submitAccountInfo();
-</script>
+	
+	
+	<script src="./script/ohter/header.js"></script>
+	<script type="module">
+		import { submitLoginInfo, submitAccountInfo } from "./script/member/index.js";
+		submitLoginInfo();
+		submitAccountInfo();
+	</script>
 </body>
 </html>

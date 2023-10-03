@@ -81,8 +81,8 @@ section article .border-box input {
 	justify-content: center;
 }
 #find-member-info span { margin: 0 5px; }
-#join-submit:hover { color: greenyellow; }
-#login-button:hover  { color: greenyellow; }
+#join-submit:hover { color: #73d09a; }
+#login-button:hover  { color: #73d09a; }
 
 /* account from */
 #tel { width: 80%; }
@@ -90,7 +90,8 @@ section article .border-box input {
 #join-submit,
 #login-button {
 	display: block;
-	margin: 4rem 2rem 4rem auto;
+	margin: 4rem 0 4rem auto;
 	border: none;
 	outline: none;
+	background-color: #fff;
 }
