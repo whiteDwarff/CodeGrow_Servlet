@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function sendData() {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200) {
+					document.getElementById('mydiv').innerHTML = this.responseText;
+					console.log(this.responseText)
+				}
+			};
+			xhr.open("post", 'mytext.txt', true);
+			xhr.send();
+		}
+	</script>
+</head>
+<body>
+	
+	<button onClick="sendData()">클릭하셈</button>
+	<div id="mydiv"></div>
+
+</body>
+</html>

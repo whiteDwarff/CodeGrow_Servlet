@@ -1,0 +1,49 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+body {
+	font-size: 10px;
+}
+label {
+	display: inline-block;
+	width: 20%;
+}
+.title {
+	font-size: 0.8rem;
+	margin-bottom: 2rem;
+	font-weight: bold;
+}
+.border-box {
+	border-bottom: 1px solid #000;
+}
+.input {
+	width: 80%;
+	background-color: #fff;
+	border: none;
+}
+input:focus {
+	outline: none;
+}
+#name {
+	margin-bottom: 4rem;
+}
+#border-box {
+	border: 1px solid #000;
+}
+#join-form .flex {
+	padding: 1rem 0;
+}
+#border-box label{
+	padding-left: 1rem;
+}
+#join-submit {
+	width: unset;
+	border: none;
+	background-color: #fff;
+	margin: 4rem 0 4rem auto;
+}
+#join-submit:hover { color: #73d09a; }

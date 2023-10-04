@@ -1,4 +1,4 @@
-package com.web.board.controller;
+package com.web.board.service;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,13 +24,10 @@ public class BoardSearchService implements Service {
     String content = req.getParameter("content");
     
     BoardAuthDao boardDao = BoardAuthDao.getInstance();
-    CategoryDao group = CategoryDao.getInstance();
     
     List<AuthDto> lists = boardDao.fechedSearchList(param, option, content);
-    List<CategoryDto> menus = group.setHeader();
     
     req.setAttribute("lists", lists);
-    req.setAttribute("menus", menus);
     req.setAttribute("pm", param);
     }
 }

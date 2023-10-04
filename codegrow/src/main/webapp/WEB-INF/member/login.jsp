@@ -39,10 +39,6 @@ failedLoginInfo("${msg}");
 		
 		<article id="account">
 			<div class="form-wrapper">
-		<%-- 	<h6 class="title">CREATE ACCOUNT</h6>
-				<form method="post" action="/join" id="join-form">
-					<input type="submit" value="JOIN US" id="join-submit" class="pointer">
-				</form> --%>
 					<%@include file="./account.jsp"%>
 			</div>
 		</article>

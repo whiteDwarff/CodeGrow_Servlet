@@ -106,6 +106,15 @@ input::placeholder {
 #header-empty-box {
 	padding: 3rem 0;
 }
+/* rank가 T인 회원이 로그인 했을 경우 */
+#lecture::before {
+	content: '|';
+	margin-right: 2rem;
+	color:rgb(191, 132, 226)
+}
+
+
+
 /* summer note */
 nav a:hover {
 	color: #333;	

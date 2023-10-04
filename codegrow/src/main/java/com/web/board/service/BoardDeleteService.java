@@ -1,4 +1,4 @@
-package com.web.board.controller;
+package com.web.board.service;
 
 import java.io.IOException;
 

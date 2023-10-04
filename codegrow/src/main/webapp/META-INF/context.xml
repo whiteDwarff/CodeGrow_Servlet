@@ -27,13 +27,13 @@
     <Manager pathname="" />
     -->
 
-<Resource name ="jdbc/codegrow"
+<Resource name ="jdbc/work"
 	auth = "Container"
 	type="javax.sql.DataSource"
 	driverClassName = "org.mariadb.jdbc.Driver"
 	username="root"
 	password="1111"
-	url="jdbc:mariadb://localhost:3306/codegrow"
+	url="jdbc:mariadb://localhost:3306/work"
 	maxWait = "5000"
 />
 </Context>

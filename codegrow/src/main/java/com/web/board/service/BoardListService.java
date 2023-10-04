@@ -1,4 +1,4 @@
-package com.web.board.controller;
+package com.web.board.service;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,7 +25,6 @@ public class BoardListService implements Service {
     
     if(select == null) select = "1";
     BoardAuthDao boardDao = BoardAuthDao.getInstance();
-    CategoryDao group = CategoryDao.getInstance();
     
     int count = boardDao.recordCount(param); // 전체 레코드의 개수
     int numOfRecords = 10; // 한번에 가져올 레코드의 개수 
@@ -41,10 +40,8 @@ public class BoardListService implements Service {
     
     
     List<AuthDto> lists = boardDao.fetchedBoardList(param, p, numOfRecords, select);
-    List<CategoryDto> menus = group.setHeader();
     
     req.setAttribute("lists", lists);
-    req.setAttribute("menus", menus);
     req.setAttribute("startNum", startNum);
     req.setAttribute("lastNum", lastNum);
     req.setAttribute("numOfPages", numOfPages);

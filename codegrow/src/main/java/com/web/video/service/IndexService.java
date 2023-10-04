@@ -1,4 +1,4 @@
-package com.web.video.controller;
+package com.web.video.service;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,16 +20,18 @@ public class IndexService implements Service {
     req.setCharacterEncoding("UTF-8");
     resp.setContentType("text/html; charset=UTF-8");
     
+    // applicationScope에 menu 저장
+    javax.servlet.ServletContext application = req.getServletContext();
     VideoDao video = VideoDao.getInstance();
-    CategoryDao group = CategoryDao.getInstance();
+    CategoryDao group = CategoryDao.getInstance();   // header에 뿌려질 메뉴 
     
     List<VideoDto> videos = video.fetchedVideoList();
     List<CategoryDto> category = group.fetchedGroupTitle();
-    List<CategoryDto> menus = group.setHeader();
+    List<CategoryDto> menus = group.setHeader(); // header에 뿌려질 메뉴 
     
     req.setAttribute("videos", videos);
     req.setAttribute("category", category);
-    req.setAttribute("menus", menus);
+    application.setAttribute("menus", menus); // header에 뿌려질 메뉴 
   }
 
 }

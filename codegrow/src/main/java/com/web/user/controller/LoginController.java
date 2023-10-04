@@ -44,6 +44,7 @@ public class LoginController extends HttpServlet{
 			session.setAttribute("name", user.getName());
 			session.setAttribute("tel", user.getTel());
 			session.setAttribute("regDate", user.getRegDate());
+			session.setAttribute("rank", user.getRank());
 	  req.setAttribute("menus", menus);
 			resp.sendRedirect("/index");
 		// password mismatch

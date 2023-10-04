@@ -6,23 +6,25 @@
 		<form method="post" action="/updateInfo" id="join-form">
 		<div class="border-box flex align">
 			<label for="accound-id">EMAIL</label>
-			<span class="input block grey">${ sessionScope.email }</span>
+			<span class="input block font">${ sessionScope.email }</span>
 		</div>
-		<div class="border-box flex align">
-			<label for="accound-pwd">PW</label>
-			<input id="accound-pwd" type="password" name="pwd" class="input">
+		<div class="border-box flex align" id="name">
+			<label for="name">NAME</label>
+			<span class="input block font">${ sessionScope.name }</span>
 		</div>
-		<div class="border-box flex align">
-			<label for="accound-pwd-chk">PW CHECK</label>
-			<input id="accound-pwd-chk" type="password" class="input">
-		</div>
-		<div class="border-box flex align">
-			<label for="name" >NAME</label>
-				<span class="input block grey">${ sessionScope.name }</span>
-		</div>
-		<div class="border-box flex align">
-			<label for="tel">TEL</label>
-			<input id="tel" value="${ sessionScope.tel }" type="text" name="tel" class="input">
+		<div id="border-box">
+			<div class="border-bottom flex align">
+				<label for="accound-pwd">PW</label>
+				<input id="accound-pwd" type="password" name="pwd" class="input grey">
+			</div>
+			<div class="border-bottom flex align">
+				<label for="accound-pwd-chk">PW CHECK</label>
+				<input id="accound-pwd-chk" type="password" class="input grey">
+			</div>
+			<div class="flex align">
+				<label for="tel">TEL</label>
+				<input id="tel" value="${ sessionScope.tel }" type="text" name="tel" class="input grey">
+			</div>
 		</div>
 		<input type="submit" value="SUBMIT" id="join-submit" class="pointer block">
 		</form>
@@ -35,16 +37,16 @@
 			<input id="accound-id" type="text" name="email">
 		</div>
 		<div class="border-box">
+			<label for="name" >NAME</label>
+			<input id="name" type="text" name="name">
+		</div>
+		<div class="border-box">
 			<label for="accound-pwd">PW</label>
 			<input id="accound-pwd" type="password" name="pwd">
 		</div>
 		<div class="border-box">
 			<label for="accound-pwd-chk">PW CHECK</label> <input
 				id="accound-pwd-chk" type="password">
-		</div>
-		<div class="border-box">
-			<label for="name" >NAME</label>
-			<input id="name" type="text" name="name">
 		</div>
 		<div class="border-box">
 			<label for="tel">TEL</label>

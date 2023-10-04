@@ -40,6 +40,7 @@ public class UserDao {
 					user.setName(rs.getString("name"));
 					user.setTel(rs.getString("phone_number"));
 					user.setRegDate(rs.getDate("created_at"));
+					user.setRank(rs.getString("rank"));
 					user.setNumber(1);
 				} else user.setNumber(0);
 			}
@@ -68,5 +69,20 @@ public class UserDao {
 	    e.printStackTrace();
 	  } 
 	  return result;
+	}
+	public void updateInfo(String password, String tel, int id) {
+	  String sql = "UPDATE member SET password= SHA2(?, 256), phone_number = ? where id = ?";
+	  try(
+	      Connection con = ConnectionProvider.getConnection();
+	      PreparedStatement pstmt = con.prepareStatement(sql);
+	      ) {
+	    pstmt.setString(1, password);
+	    pstmt.setString(2, tel);
+	    pstmt.setInt(3, id);
+	    pstmt.executeUpdate();
+	    
+	  } catch(Exception e) {
+	    e.printStackTrace();
+	  }
 	}
 }

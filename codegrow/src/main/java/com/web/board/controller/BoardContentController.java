@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.web.board.service.BoardContentService;
 import com.web.service.Service;
 
 @WebServlet("/boardContent")

@@ -19,6 +19,9 @@
 				</c:forEach>
 				<a href="/board?param=board">Board</a>
 				<a href="/notice?param=notice">Notice</a>
+				<c:if test="${ sessionScope.rank eq 'T' }">
+					<a href="/lecture" id="lecture"class="rank">Lecture</a>
+				</c:if>
 			</nav> 
 			<div class="sub-gnb">
 				<i class="fa-solid fa-magnifying-glass header-image pointer"></i>

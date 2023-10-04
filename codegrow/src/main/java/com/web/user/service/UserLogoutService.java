@@ -1,4 +1,4 @@
-package com.web.user.controller;
+package com.web.user.service;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.web.service.Service;
 
-public class LogoutService implements Service {
+public class UserLogoutService implements Service {
 
   @Override
   public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

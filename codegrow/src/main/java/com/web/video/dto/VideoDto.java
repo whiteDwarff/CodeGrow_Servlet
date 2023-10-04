@@ -72,6 +72,15 @@ public class VideoDto {
     this.uploaded_at = uploaded_at;
     this.category_id = category_id;
   }
+  public VideoDto(int id, String title, String description, String url, Date uploaded_at, int category_id, int hit) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.url = url;
+    this.uploaded_at = uploaded_at;
+    this.category_id = category_id;
+    this.hit = hit;
+  }
   
 
 }

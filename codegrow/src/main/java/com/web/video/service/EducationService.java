@@ -1,4 +1,4 @@
-package com.web.video.controller;
+package com.web.video.service;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,16 +24,13 @@ public class EducationService implements Service {
     int groupId = Integer.parseInt(req.getParameter("group"));
     
     VideoDao dao = VideoDao.getInstance();
-    CategoryDao group = CategoryDao.getInstance();
     
     dao.updateHit(id);
     VideoDto video = dao.fetchedVideoId(id);
     List<VideoDto> subMenu = dao.fetchedVideoGroup(groupId);
-    List<CategoryDto> menus = group.setHeader();
     
     req.setAttribute("subMenu", subMenu);
     req.setAttribute("video", video);
-    req.setAttribute("menus", menus);
   }
 
 }

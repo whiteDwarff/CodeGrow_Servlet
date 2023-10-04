@@ -25,11 +25,7 @@ function submitAccountInfo() {
 		let name = document.getElementById('name');
 		let tel = document.getElementById('tel');
 		
-		if(!validateEmail(id.value)) {
-			e.preventDefault();
-			alert('올바른 이메일 형식이 아닙니다.');
-			id.focus();
-		} else if(!validatePwd(pwd.value)) {
+		if(!validatePwd(pwd.value)) {
 			e.preventDefault();
 			alert('비밀번호는 대문자와 특수문자, 숫자를 포함한 8-15자 이내로 입력해주세요.');
 			pwd.focus();
@@ -37,6 +33,10 @@ function submitAccountInfo() {
 			e.preventDefault();
 			alert('비밀번호가 일치하지 않습니다.');
 			check.focus();
+		} else if(!validateEmail(id.value)) {
+			e.preventDefault();
+			alert('올바른 이메일 형식이 아닙니다.');
+			id.focus();
 		} else if(!name.value || name.value === '') {
 			e.preventDefault();
 			alert('이름을 입력해주세요.');

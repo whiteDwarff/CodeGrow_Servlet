@@ -1,79 +1,68 @@
 @charset "UTF-8";
+
 * {
 	margin: 0;
 	padding: 0;
-	color: black;
-	text-decoration: none;
 	list-style: none;
+	text-decoration: none;
 	box-sizing: border-box;
 }
 body {
 	font-size: 10px;
 }
-a {color: black;}
-#board-section{ 
+section {
 	min-height: calc(100vh - 20rem);
-}
-#ohter {
-	height: 10rem;
-}
-footer {
-	height: 10rem;
-}
-/* section-wrap */
-.board-list {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
+	width: 80%;
+	margin: 0 auto;
 }
 #align-option {
 	text-align: right;
 	outline: none;
 	margin-bottom: 2rem;
 }
-.post-item {
-  background-color: #f8f9fa;
-}
 table {
   border-collapse: collapse; /* 테이블 셀 간의 간격 없애기 */
   width: 100%; /* 테이블이 가로로 꽉 차게 */
   text-align: center;
 }
-
 th {
   border-top: 1px solid #999; /* 셀 경계선 */
   border-bottom: 1px solid #999; /* 셀 경계선 */
   padding: 1.2rem 0; /* 안쪽 여백 */
 }
-
 td {
   padding: 1.2rem 0; /* 안쪽 여백 */
 }
 tr{ 
 	border-bottom: 1px solid #ddd; /* 셀 경계선 */
 }
-tr:last-child {
-	 border-top: 1px solid #999;
+embed {
+	width: 6rem;
+	margin-right: 2rem;
 }
-.post-number,
-.post-author,
-.post-date,
-.post-hit {
+.video {
+	text-align: left;
+}
+.video-title {
+	margin-bottom: 1rem;
+}
+.video-description {
+	font-weight: 300;
+}
+.video-number,
+.video-date,
+.video-hit {
 	width: 10%;
 }
-.post-title {
-	width: 60%;
+.table-button {
+	margin-right: 1rem;
 }
-#data-none {
-	padding: 3rem 0;
-}
-#page {
-	margin: 3rem 0;
-	height: 3rem;
+#delete-button {
+	margin: 0;
 }
 
 #search-form {
-	width: 50%;
+	width: 55%;
 	margin: 2rem auto 0 auto;
 	border: 1px solid #000;
 }
@@ -89,7 +78,10 @@ tr:last-child {
 	border-right: 1px solid #000;
 }
 #search-form input {
-	width: 60%;
+	width: 80%;
+}
+#search-form input::placeholder {
+	font-size: 0.6rem;
 }
 #button-wrap {
 	width: 20%;
@@ -97,6 +89,7 @@ tr:last-child {
 }
 #qna-button {
 	display: inline-block;
+	width: 40%;
 	font-size: 0.7rem;
 	background-color: #fff;
 	border:none;
@@ -105,6 +98,9 @@ tr:last-child {
 	text-decoration: underline;
 	text-decoration-color: #73d09a;
 	text-underline-position : under;
+}
+#data-none {
+	padding: 3rem 0;
 }
 #page-nation {
 	margin-top: 2rem;

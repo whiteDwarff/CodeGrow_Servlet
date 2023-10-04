@@ -1,4 +1,4 @@
-package com.web.comment;
+package com.web.comment.controller;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.web.comment.service.CommentDeleteService;
+import com.web.comment.service.CommentUpdateService;
 import com.web.service.Service;
 
 @WebServlet("/updateComment")
@@ -16,7 +18,7 @@ public class UpdateCommentController extends HttpServlet{
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     // TODO Auto-generated method stub
-    Service service = new UpdateCommentService();
+    Service service = new CommentUpdateService();
     service.execute(req, resp);
     
     Integer id = (Integer) req.getAttribute("boardId");
@@ -25,7 +27,7 @@ public class UpdateCommentController extends HttpServlet{
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     // TODO Auto-generated method stub
-    Service service = new DeleteCommentService();
+    Service service = new CommentDeleteService();
     service.execute(req, resp);
     
     Integer id = (Integer) req.getAttribute("boardId");

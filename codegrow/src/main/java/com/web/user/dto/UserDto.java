@@ -9,6 +9,7 @@ public class UserDto {
 	private String name;
 	private String tel;
 	private Date regDate;
+	private String rank;
 	private int number;
 	
  public int getId() {
@@ -53,14 +54,21 @@ public class UserDto {
 	public void setNumber(int number) {
 		this.number = number;
 	}
+ public String getRank() {
+   return tel;
+  }
+  public void setRank(String rank) {
+   this.tel = rank;
+  }
 	
-	public UserDto(int id, String email, String pwd, String name, String tel, Date regDate, int number) {
+	public UserDto(int id, String email, String pwd, String name, String tel, Date regDate, String rank, int number) {
 	 this.id = id;
 		this.email = email;
 		this.pwd = pwd;
 		this.name = name;
 		this.tel = tel;
 		this.regDate = regDate;
+		this.rank = rank;
 		this.number = number;
 	}
 	public UserDto() {}

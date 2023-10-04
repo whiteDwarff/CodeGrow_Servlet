@@ -1,16 +1,18 @@
-package com.web.comment;
+package com.web.lecture.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.web.board.dao.BoardCommentDao;
 import com.web.service.Service;
+import com.web.video.dao.LectureDao;
+import com.web.video.dto.VideoDto;
 
-public class InsertCommentService implements Service {
+public class LectureSearchService implements Service {
 
   @Override
   public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,13 +20,13 @@ public class InsertCommentService implements Service {
     req.setCharacterEncoding("utf-8");
     HttpSession session = req.getSession();
     
-    String comment = req.getParameter("comment");
-    int post_id = Integer.parseInt(req.getParameter("post_id")); // 게시글의 ID
-    int author_id = (int)session.getAttribute("id");   // 작성자의 ID
+    String content = req.getParameter("content");
+    int id = (int) session.getAttribute("id");
     
-    BoardCommentDao dao = BoardCommentDao.getInstance();
-    dao.insertComment(comment, post_id, author_id);
-    req.setAttribute("boardId", post_id);
+    LectureDao dao = LectureDao.getInstance();
+    List<VideoDto> videos = dao.fetchedVideoTitle(content, id);
+    
+    req.setAttribute("videos", videos);
 
   }
 

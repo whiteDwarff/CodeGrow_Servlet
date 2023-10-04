@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.web.board.service.BoardUpdateService;
 import com.web.service.Service;
 
 @WebServlet("/boardUpdate")

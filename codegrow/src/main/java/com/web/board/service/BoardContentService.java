@@ -1,4 +1,4 @@
-package com.web.board.controller;
+package com.web.board.service;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,9 +27,6 @@ public class BoardContentService implements Service {
       BoardAuthDao dao = BoardAuthDao.getInstance();
       BoardCommentDao contentDao = BoardCommentDao.getInstance();
       
-      CategoryDao group = CategoryDao.getInstance();
-      List<CategoryDto> menus = group.setHeader();
-    
     // insertBoard를 분기처리 하기 위해 id가 있는 경우 req 객체에 저장하여 포워딩 
     if(id != null && !id.isEmpty()) {
       int finalId = Integer.parseInt(id);
@@ -45,7 +42,6 @@ public class BoardContentService implements Service {
         req.setAttribute("comment", comment);
       }
     }
-    req.setAttribute("menus", menus);
     req.setAttribute("pm", param);
   }
 

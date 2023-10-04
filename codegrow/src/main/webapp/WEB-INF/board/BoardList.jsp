@@ -23,7 +23,7 @@ failedLoginInfo("${msg}");
 		<article class="board-list">
 			<form method="get" action="/board" id="align-option">
 				<select name="select" onchange="this.form.submit()">
-					<option value="1" class="align-option">기본순</option>
+					<option value="1" class="align-option">최신순</option>
 					<option value="2" class="align-option">오래된순</option>
 					<option value="3" class="align-option">조회수높은순</option>
 					<option value="4" class="align-option">조회수낮은순</option>
@@ -59,8 +59,6 @@ failedLoginInfo("${msg}");
 			</c:if>
 	</section>
 	
-	
-	
 	<section id="ohter">
   	<c:if test="${ not empty startNum && not empty numOfPages}">
 			<!-- #### pageNation #### -->
@@ -82,21 +80,21 @@ failedLoginInfo("${msg}");
 			<!-- ########## -->
 		</c:if>
 			
-			<form method="post" action="/board" id="search-form" class="flex">
+			<form method="post" action="/${ pm }" id="search-form" class="flex">
 				<select name="option">
 					<option value="title">제목</option>
 					<option value="name">작성자</option>
 				</select>
 				<input type="text" name="content" id="form-value">
 				<input type="text" name="param" value="${ pm }" class="none">
-				<div id="button-wrap" class="text-align">
-					<button id="search-button" class="pointer hover">검색</button>
-					<c:if test="${ not empty sessionScope.name && pm eq 'board'}">
-		 				<a href="/boardInsert?param=${ pm }" id="qna-button" class="pointer hover">문의하기</a>
-		 			</c:if>
+				<div id="button-wrap" class="">
 		 			<c:if test="${ not empty sessionScope.name && sessionScope.name eq '관리자' && pm eq 'notice'}">
 		 				<a href="/boardInsert?param=${ pm }" id="qna-button" class="pointer hover">작성하기</a>
 		 			</c:if>
+					<c:if test="${ not empty sessionScope.name && pm eq 'board'}">
+		 				<a href="/boardInsert?param=${ pm }" id="qna-button" class="pointer">문의하기</a>
+		 			</c:if>
+					<button id="search-button" class="none">검색</button>
 				</div>
 			</form>
 	</section>
