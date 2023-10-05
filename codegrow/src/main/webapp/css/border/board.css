@@ -84,6 +84,9 @@ tr:last-child {
 	border-right: none;
 	font-size: 0.7rem;
 }
+#form-value::placeholder {
+	font-size: 0.7rem;
+}
 #search-form select {
 	width: 20%;
 	border-right: 1px solid #000;
@@ -92,8 +95,7 @@ tr:last-child {
 	width: 60%;
 }
 #button-wrap {
-	width: 20%;
-	text-align: center;
+	margin-left: auto;
 }
 #qna-button {
 	display: inline-block;

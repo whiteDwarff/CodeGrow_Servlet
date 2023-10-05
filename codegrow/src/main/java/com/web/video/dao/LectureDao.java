@@ -58,6 +58,7 @@ public class LectureDao {
     }
     return videos;
   }
+  // 비디오 타이틀 검색
   public List<VideoDto> fetchedVideoTitle(String value, int uploaded_id) {
     String sql = "SELECT * from VIDEO WHERE uploader_id = ? and TITLE LIKE ?";
     List<VideoDto> videos = new ArrayList<VideoDto>();
@@ -87,6 +88,41 @@ public class LectureDao {
         e.printStackTrace();
     }
     return videos;
+  }
+  // 비디오 추가
+  public int InsertVideo(String title, String description, String url, int category, int uploader_id) {
+    String insert = "INSERT INTO VIDEO (title, description, url, category_id, uploader_id) VALUES (?, ?, ?, ?, ?)";
+    int id = 0;
+    String select = "SELECT id FROM VIDEO WHERE title=? and description=?";
+    
+    System.out.println(insert);
+    System.out.println(select);
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement insertPstmt = con.prepareStatement(insert);
+        PreparedStatement selectPstmt = con.prepareStatement(select);
+        ) {
+      insertPstmt.setString(1, title);
+      insertPstmt.setString(2, description);
+      insertPstmt.setString(3, url);
+      insertPstmt.setInt(4, category);
+      insertPstmt.setInt(5, uploader_id);
+      
+      selectPstmt.setString(1, title);
+      selectPstmt.setString(2, description);
+      
+      insertPstmt.executeUpdate();
+      
+      try(ResultSet rs = selectPstmt.executeQuery()) {
+        while(rs.next()) {
+          id = rs.getInt(1);
+        }
+      }
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+    return id;
   }
   public int recordCount(int id) {
     int count = 0;

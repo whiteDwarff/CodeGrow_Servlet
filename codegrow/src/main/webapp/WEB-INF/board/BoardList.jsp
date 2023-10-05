@@ -85,7 +85,7 @@ failedLoginInfo("${msg}");
 					<option value="title">제목</option>
 					<option value="name">작성자</option>
 				</select>
-				<input type="text" name="content" id="form-value">
+				<input type="text" name="content" id="form-value" placeholder="검색어를 입력하세요.">
 				<input type="text" name="param" value="${ pm }" class="none">
 				<div id="button-wrap" class="">
 		 			<c:if test="${ not empty sessionScope.name && sessionScope.name eq '관리자' && pm eq 'notice'}">

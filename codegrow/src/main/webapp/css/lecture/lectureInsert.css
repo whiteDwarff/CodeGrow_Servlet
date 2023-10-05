@@ -7,6 +7,21 @@ select {
 	padding: 0 0.5rem;
 	margin-right: 2rem;
 }
+#title {
+	font-size: 1rem;
+}
+#description {
+	margin: 2rem 0;
+}
+p {
+	font-style: oblique;
+}
+samll {
+	margin-top: auto;
+}
+#update-form > div:nth-child(1) {
+	padding-top: 0;
+}
 .fa-brands {
 	color: #f00;
 	font-size: 1.7rem;
@@ -44,4 +59,15 @@ embed {
 #count {
 	display: block;
 	margin-top: auto;
+}
+
+#submit {
+	margin-left: auto;
+	background-color: #fff;
+	border: none;
+	transition: 0.5s ease-in;
+}
+#submit:hover {
+	transition: 0.5s ease-in;
+	color: #73d09a;
 }

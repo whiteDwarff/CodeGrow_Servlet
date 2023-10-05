@@ -87,7 +87,7 @@
 	
 	
 		<form method="post" action="/lecture" id="search-form" class="flex">
-			<input type="text" name="content" id="form-value" placeholder="검색조건을 입력하세요">
+			<input type="text" name="content" id="form-value" placeholder="검색어를 입력하세요">
 			<div id="button-wrap" class="text-align">
 		 		<a href="/lectureInsert" id="qna-button" class="pointer">등록</a>
 				<button id="search-button" class="none">검색</button>

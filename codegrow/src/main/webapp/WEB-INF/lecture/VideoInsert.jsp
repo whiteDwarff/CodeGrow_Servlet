@@ -16,33 +16,42 @@
 	<%@include file="../common/header.jsp"%>
 	<section class="wrap">
 	
-	<h3>Uploade Lecture</h3>
+	<h3 id="title">Uploade Lecture</h3>
 	
-		<form id="update-form">
+		<div id="description">
+			<p class="grey">- 빈 칸을 모두 입력해주세요.</p>
+			<p class="grey">- TITLE은 최대 30자까지 입력할 수 있습니다.</p>
+			<p class="grey">- DESCRIPTION은 최대 50자까지 입력할 수 있습니다.</p>
+			<p class="grey">- LINK 입력 후 Youtube 버튼을 클릭하면 Youtube 링크와 연결됩니다.</p>
+		</div>
+	
+		<form id="update-form" method="post" action="/lectureInsert">
 			<div class="border-bottom flex align">
 				<label>TITLE</label>
-				<input type="text" name="title">
+				<input type="text" name="title" class="content-input input">
+				<small class="content-count block grey">0 / 30</small>
 			</div>
 				<div class="border-bottom flex align-top">
 				<label>DESCRIPTION</label>
-				<textarea name="description" id="description"></textarea>
+				<textarea name="description" class="content-input input"></textarea>
 				<!-- 글자 수 제한 -->
-				<small id="count">0 / 50</small>
+				<small class="content-count block grey">0 / 50</small>
 			</div>
 			<div class="border-bottom flex align">
 				<label>LINK</label>
-				<input type="text" id="link" placeholder="https://youtu.be/">
+				<input type="text" id="link" placeholder="https://youtu.be/" class="input" name="link">
 			</div>
 			<div class="border-bottom flex align">
 				<label>CATEGORY</label>
-				<select name="category">
-					<option value="html">HTML/CSS</option>
-					<option value="JavaScript">JavaScript</option>
-					<option value="DataBase">DataBase</option>
-					<option value="Jsp">Jsp</option>
-					<option value="Spring">Spring</option>
+				<select name="url">
+					<option value="1">HTML/CSS</option>
+					<option value="2">JavaScript</option>
+					<option value="3">DataBase</option>
+					<option value="4">Jsp</option>
+					<option value="5">Spring</option>
 				</select>
 				<i class="fa-brands fa-youtube fa-bounce pointer" id="add-button"></i>
+			<button id="submit" class="block pointer bold">SUBMIT</button>
 			</div>
 		</form>
 		<!-- 동영상 썸네일 -->
@@ -50,8 +59,16 @@
 		 src="https://cdn.cwn.kr/news/photo/202204/9492_10476_851.jpg" allowfullscreen></embed>
 	</section>
 	
-	<script src="./script/lecture/lectureInsert.js">
+	<script type="module">
+	import {
+			addVideoLink,
+			inputLengthHandler,
+			submit,
+		} from './script/lecture/lectureInsert.js'
 	
+	addVideoLink();
+	inputLengthHandler();
+	submit();
 	</script>
 </body>
 </html>
