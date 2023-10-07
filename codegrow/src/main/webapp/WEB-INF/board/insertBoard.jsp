@@ -68,6 +68,8 @@
 		</c:if>
 	</section>
 
+	<%@include file="../common/footer.jsp"%>
+	
 <script src="./script/ohter/header.js"></script>
 <script type="module">
 import {

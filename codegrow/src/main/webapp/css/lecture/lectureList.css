@@ -11,7 +11,7 @@ body {
 	font-size: 10px;
 }
 section {
-	min-height: calc(100vh - 20rem);
+	min-height: calc(100vh - 10rem);
 	width: 80%;
 	margin: 0 auto;
 }
@@ -39,6 +39,8 @@ tr{
 embed {
 	width: 6rem;
 	margin-right: 2rem;
+	min-width: 96px;
+	min-height: 54px;
 }
 .video {
 	text-align: left;
@@ -84,12 +86,10 @@ embed {
 	font-size: 0.6rem;
 }
 #button-wrap {
-	width: 20%;
-	text-align: center;
+	margin-left: auto;
 }
 #qna-button {
 	display: inline-block;
-	width: 40%;
 	font-size: 0.7rem;
 	background-color: #fff;
 	border:none;

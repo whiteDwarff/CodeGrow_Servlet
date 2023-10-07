@@ -21,11 +21,11 @@ public class BoardContentService implements Service {
   public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     // TODO Auto-generated method stub
     req.setCharacterEncoding("utf-8");
-      String param = req.getParameter("param");
-      String id = req.getParameter("id");
+     String param = req.getParameter("param");
+     String id = req.getParameter("id");
       
-      BoardAuthDao dao = BoardAuthDao.getInstance();
-      BoardCommentDao contentDao = BoardCommentDao.getInstance();
+     BoardAuthDao dao = BoardAuthDao.getInstance();
+     BoardCommentDao contentDao = BoardCommentDao.getInstance();
       
     // insertBoard를 분기처리 하기 위해 id가 있는 경우 req 객체에 저장하여 포워딩 
     if(id != null && !id.isEmpty()) {

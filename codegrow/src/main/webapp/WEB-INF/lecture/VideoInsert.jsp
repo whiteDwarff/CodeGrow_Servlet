@@ -16,7 +16,7 @@
 	<%@include file="../common/header.jsp"%>
 	<section class="wrap">
 	
-	<h3 id="title">Uploade Lecture</h3>
+	<h3 id="title">Upload Lecture</h3>
 	
 		<div id="description">
 			<p class="grey">- 빈 칸을 모두 입력해주세요.</p>
@@ -24,7 +24,49 @@
 			<p class="grey">- DESCRIPTION은 최대 50자까지 입력할 수 있습니다.</p>
 			<p class="grey">- LINK 입력 후 Youtube 버튼을 클릭하면 Youtube 링크와 연결됩니다.</p>
 		</div>
+		
+		<c:if test="${ not empty video }">
+		<form id="update-form" method="post" action="/lectureUpdate">
+			<div class="border-bottom flex align">
+				<label>TITLE</label>
+				<input value="${ video.title }" type="text" name="title" class="content-input input">
+				<small class="content-count block grey">0 / 30</small>
+			</div>
+				<div class="border-bottom flex align-top">
+				<label>DESCRIPTION</label>
+				<textarea name="description" class="content-input input">${ video.description }</textarea>
+				<!-- 글자 수 제한 -->
+				<small class="content-count block grey">0 / 50</small>
+			</div>
+			<div class="border-bottom flex align">
+				<label>LINK</label>
+				<input value="${ video.url }" type="text" id="link" placeholder="https://youtu.be/" class="input" name="url">
+			</div>
+			<div class="border-bottom flex align">
+				<label>CATEGORY</label>
+				<select name="category">
+					<option value="1">HTML/CSS</option>
+					<option value="2">JavaScript</option>
+					<option value="3">DataBase</option>
+					<option value="4">JSP</option>
+					<option value="5">Spring</option>
+				</select>
+				<i class="fa-brands fa-youtube fa-bounce pointer" id="add-button"></i>
+				<input type="text" value="${ video.id }" name="id" class="none">
+			<button id="submit" class="block pointer bold">Update</button>
+			</div>
+		</form>
+		<!-- 동영상 썸네일 -->
+		<embed controls=0 id="video" class="wrap block"
+		 src="https://img.youtube.com/vi/${ video.url }/maxresdefault.jpg" allowfullscreen></embed>
+		<script type="module">
+	    import { updateInputHandler } from './script/lecture/lectureInsert.js'
+	    updateInputHandler('${ video.category_id }');
+	  </script>
+	</c:if>
 	
+	
+	<c:if test="${ empty video }">
 		<form id="update-form" method="post" action="/lectureInsert">
 			<div class="border-bottom flex align">
 				<label>TITLE</label>
@@ -47,7 +89,7 @@
 					<option value="1">HTML/CSS</option>
 					<option value="2">JavaScript</option>
 					<option value="3">DataBase</option>
-					<option value="4">Jsp</option>
+					<option value="4">JSP</option>
 					<option value="5">Spring</option>
 				</select>
 				<i class="fa-brands fa-youtube fa-bounce pointer" id="add-button"></i>
@@ -57,7 +99,11 @@
 		<!-- 동영상 썸네일 -->
 		<embed controls=0 id="video" class="wrap block"
 		 src="https://cdn.cwn.kr/news/photo/202204/9492_10476_851.jpg" allowfullscreen></embed>
+	</c:if>
+	
 	</section>
+	
+	<%@include file="../common/footer.jsp"%>
 	
 	<script type="module">
 	import {

@@ -94,9 +94,6 @@ public class LectureDao {
     String insert = "INSERT INTO VIDEO (title, description, url, category_id, uploader_id) VALUES (?, ?, ?, ?, ?)";
     int id = 0;
     String select = "SELECT id FROM VIDEO WHERE title=? and description=?";
-    
-    System.out.println(insert);
-    System.out.println(select);
     try(
         Connection con = ConnectionProvider.getConnection();
         PreparedStatement insertPstmt = con.prepareStatement(insert);
@@ -123,6 +120,62 @@ public class LectureDao {
       e.printStackTrace();
     }
     return id;
+  }
+  // video 삭제
+  public void deleteVideo(int id) {
+    String sql ="DELETE FROM video WHERE id = ?";
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+      pstmt.setInt(1, id);
+      pstmt.executeUpdate();
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  // video 수정 시 id를 통해 하나의 비디오 정보 가져오기 
+  public VideoDto fetchedVideoById(int id) {
+    String sql ="SELECT title, description, url, category_id FROM video WHERE id = ?";
+    VideoDto video = new VideoDto();
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+      pstmt.setInt(1, id);
+      try(ResultSet rs = pstmt.executeQuery();) {
+        while(rs.next()) {
+          video.setTitle(rs.getString("title"));
+          video.setDescription(rs.getString("description"));
+          video.setUrl(rs.getString("url"));
+          video.setCategory_id(rs.getInt("category_id"));
+          video.setId(id);
+        }
+      }
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+    return video;
+  }
+  // video 수정
+  public void updateVideo(String title, String description, String url, int category_id, int id) {
+    String sql = "UPDATE video SET title=?, description=?, url=?, category_id=? where id=?";
+    try(
+        Connection con = ConnectionProvider.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+      pstmt.setString(1, title);
+      pstmt.setString(2, description);
+      pstmt.setString(3, url);
+      pstmt.setInt(4, category_id);
+      pstmt.setInt(5, id);
+      pstmt.executeUpdate();
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
   }
   public int recordCount(int id) {
     int count = 0;

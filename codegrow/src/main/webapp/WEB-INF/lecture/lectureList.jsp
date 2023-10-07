@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="./css/ohter/common.css">
 <link rel="stylesheet" href="./css/ohter/header.css">
 <link rel="stylesheet" href="./css/lecture/lectureList.css">
+<script type="module">
+import { failedLoginInfo } from "./script/member/index.js";
+failedLoginInfo("${msg}");
+</script>
 </head>
 <body>
 	<%@include file="../common/header.jsp"%>
@@ -51,14 +55,14 @@
 					<td class="video-date">${ video.uploaded_at }</td>
 					<td class="video-hit">${ video.hit }</td>
 					<td>
-						<a href="#" class="table-button pointer">수정</a>
-						<a href="#" id="delete-button" class="table-button pointer">삭제</a>
+						<a href="/lectureInsert?id=${ video.id }" class="table-button pointer">수정</a>
+						<a href="/lectureDelete?id=${ video.id }" class="table-button delete-button pointer">삭제</a>
 				</tr>
 				</c:forEach>
 				</table>
 			</article>
 			
-			<c:if test="${empty videos }">
+			<c:if test="${ empty videos }">
 				<div id="data-none" class="text-align">
 					<span>검색된 결과가 없습니다.</span>
 				</div>
@@ -96,6 +100,8 @@
 	</article>
 	</section>
 	
+	<%@include file="../common/footer.jsp"%>
+	
 	<script src="./script/ohter/header.js"></script>
 	<script type="module">
   import { 
@@ -105,6 +111,10 @@
 		hiddenNextButton,
 		selectOptionHandelr,
 } from "./script/board/boardList.js";	
+import {
+		deleteVideo,
+} from "./script/lecture/lectureList.js";
+
 
 		const pageValue = ${p};
 		const lastValue = '${lastNum}';
@@ -116,6 +126,8 @@
 			hiddenNextButton(pageValue, lastValue)
 			selectOptionHandelr(option);
 		}
+deleteVideo();
 </script>
+
 </body>
 </html>

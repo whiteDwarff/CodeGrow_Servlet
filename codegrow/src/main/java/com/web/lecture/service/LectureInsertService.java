@@ -18,25 +18,20 @@ public class LectureInsertService implements Service {
   public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     // TODO Auto-generated method stub
     req.setCharacterEncoding("utf-8");
-    
+    LectureDao Lecturedao = LectureDao.getInstance();
+
     int group = Integer.parseInt(req.getParameter("url"));
     String title = req.getParameter("title");
     String description = req.getParameter("description");
     String url = req.getParameter("link");
-    
+
     HttpSession session = req.getSession();
-    int uploader_id = (int)session.getAttribute("id");
-    
-    LectureDao Lecturedao = LectureDao.getInstance();
+    int uploader_id = (int) session.getAttribute("id");
+
     int id = Lecturedao.InsertVideo(title, description, url, group, uploader_id);
-   
+
     req.setAttribute("id", id);
     req.setAttribute("group", group);
     req.setAttribute("msg", "게시물이 등록되었습니다");
-    
-    
-    
-    
   }
-
 }

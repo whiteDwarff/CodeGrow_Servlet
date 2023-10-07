@@ -142,7 +142,9 @@ failedLoginInfo("${msg}");
 	</c:forEach>
 	</section>
 	</c:if>
-
+	<%@include file="../common/footer.jsp"%>
+	
+	
 <script src="./script/ohter/header.js"></script>
 <script type="module">
 import { 

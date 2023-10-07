@@ -12,7 +12,7 @@ body {
 }
 a {color: black;}
 #board-section{ 
-	min-height: calc(100vh - 20rem);
+	min-height: calc(100vh - 10rem);
 }
 #ohter {
 	height: 10rem;
