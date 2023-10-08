@@ -55,12 +55,12 @@ public class UserDto {
 		this.number = number;
 	}
  public String getRank() {
-   return tel;
+   return rank;
   }
   public void setRank(String rank) {
-   this.tel = rank;
+   this.rank = rank;
   }
-	
+	// 회원가입 시 사용
 	public UserDto(int id, String email, String pwd, String name, String tel, Date regDate, String rank, int number) {
 	 this.id = id;
 		this.email = email;
@@ -71,6 +71,15 @@ public class UserDto {
 		this.rank = rank;
 		this.number = number;
 	}
+	// 관리자 사용
+ public UserDto(int id, String email, String name, String tel, Date regDate, String rank) {
+   this.id = id;
+   this.email = email;
+   this.name = name;
+   this.tel = tel;
+   this.regDate = regDate;
+   this.rank = rank;
+  }
 	public UserDto() {}
 	
 }

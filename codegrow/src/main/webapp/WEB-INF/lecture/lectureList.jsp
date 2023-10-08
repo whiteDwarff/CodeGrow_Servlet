@@ -17,7 +17,7 @@ failedLoginInfo("${msg}");
 </head>
 <body>
 	<%@include file="../common/header.jsp"%>
-	<section>
+	<section id="board-section">
 				<!-- 게시판 정렬 옵션 -->
 		<article class="board-list">
 			<form method="get" action="lecture" id="align-option">
@@ -67,8 +67,8 @@ failedLoginInfo("${msg}");
 					<span>검색된 결과가 없습니다.</span>
 				</div>
 			</c:if>
-	<article>
-	
+	</section>
+	<section id="ohter">
 		<c:if test="${ not empty startNum && not empty numOfPages}">
 			<!-- #### pageNation #### -->
 			<div id="page-nation" class="flex center">
@@ -97,7 +97,6 @@ failedLoginInfo("${msg}");
 				<button id="search-button" class="none">검색</button>
 			</div>
 		</form>
-	</article>
 	</section>
 	
 	<%@include file="../common/footer.jsp"%>

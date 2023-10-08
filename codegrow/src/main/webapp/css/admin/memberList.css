@@ -1,22 +1,25 @@
 @charset "UTF-8";
-
 * {
 	margin: 0;
 	padding: 0;
-	list-style: none;
+	color: black;
 	text-decoration: none;
+	list-style: none;
 	box-sizing: border-box;
 }
 body {
 	font-size: 10px;
 }
-#board-section {
+a {color: black;}
+#board-section{ 
 	min-height: calc(100vh - 20rem);
-	width: 80%;
-	margin: 0 auto;
 }
 #ohter {
-	height: 10rem;
+    height: 10rem;
+}
+.board-list {
+  width: 80%;
+  margin: 0 auto;
 }
 #align-option {
 	text-align: right;
@@ -27,6 +30,9 @@ table {
   border-collapse: collapse; /* 테이블 셀 간의 간격 없애기 */
   width: 100%; /* 테이블이 가로로 꽉 차게 */
   text-align: center;
+}
+.post-item {
+  background-color: #f8f9fa;
 }
 th {
   border-top: 1px solid #999; /* 셀 경계선 */
@@ -39,35 +45,28 @@ td {
 tr{ 
 	border-bottom: 1px solid #ddd; /* 셀 경계선 */
 }
-embed {
-	width: 6rem;
-	margin-right: 2rem;
-	min-width: 96px;
-	min-height: 54px;
+tr:last-child {
+	 border-top: 1px solid #999;
 }
-.video {
-	text-align: left;
-}
-.video-title {
-	margin-bottom: 1rem;
-}
-.video-description {
-	font-weight: 300;
-}
-.video-number,
-.video-date,
-.video-hit {
+.user-number,
+.user-name {
 	width: 10%;
 }
-.table-button {
-	margin-right: 1rem;
+.user-rank {
+	width: 20%;
 }
-#delete-button {
-	margin: 0;
+.user-email {
+	width: 30%;
 }
-
+.user-tel,
+.user-reg {
+	width: 15%;
+}
+.rank-option {
+	margin-right: 4rem;
+}
 #search-form {
-	width: 55%;
+	width: 50%;
 	margin: 2rem auto 0 auto;
 	border: 1px solid #000;
 }
@@ -78,15 +77,15 @@ embed {
 	border-right: none;
 	font-size: 0.7rem;
 }
+#form-value::placeholder {
+	font-size: 0.7rem;
+}
 #search-form select {
 	width: 20%;
 	border-right: 1px solid #000;
 }
 #search-form input {
-	width: 80%;
-}
-#search-form input::placeholder {
-	font-size: 0.6rem;
+	width: 60%;
 }
 #button-wrap {
 	margin-left: auto;
@@ -101,9 +100,6 @@ embed {
 	text-decoration: underline;
 	text-decoration-color: #73d09a;
 	text-underline-position : under;
-}
-#data-none {
-	padding: 3rem 0;
 }
 #page-nation {
 	margin-top: 2rem;

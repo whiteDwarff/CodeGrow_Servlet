@@ -19,8 +19,11 @@
 				</c:forEach>
 				<a href="/board?param=board">Board</a>
 				<a href="/notice?param=notice">Notice</a>
-				<c:if test="${ sessionScope.rank eq 'T' }">
+				<c:if test="${ sessionScope.rank eq 'T' || sessionScope.rank eq 'O'}">
 					<a href="/lecture" id="lecture"class="rank">Lecture</a>
+				</c:if>
+					<c:if test="${ sessionScope.rank eq 'O'}">
+					<a href="/memberList" id="member"class="rank">Member</a>
 				</c:if>
 			</nav> 
 			<div class="sub-gnb">

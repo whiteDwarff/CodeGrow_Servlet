@@ -17,7 +17,11 @@ function hiddenNextButton(currentNum, lastNum) {
 function selectOptionHandelr(option) {
 	const alignOption = document.getElementsByClassName('align-option');
 	for(let item of alignOption) 
-		if(parseInt(item.value) == parseInt(option)) item.selected = true;
+		if(typeof item.value == 'number' && parseInt(item.value) == parseInt(option)) {
+			item.selected = true;
+		} else {
+			if(item.value == option) item.selected = true;
+		}
 }
 // submit handler
 function searchBoardList() {
