@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.web.admin.service.MemberListService;
+import com.web.admin.service.MemberSearchService;
 import com.web.service.Service;
 
 @WebServlet("/memberList")
@@ -20,5 +21,10 @@ public class MemberListController extends HttpServlet{
     service.execute(req, resp);
     req.getRequestDispatcher("/WEB-INF/admin/memberList.jsp").forward(req, resp);
   }
-
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Service service = new MemberSearchService();
+    service.execute(req, resp);
+    req.getRequestDispatcher("/WEB-INF/admin/memberList.jsp").forward(req, resp);
+  }
 }

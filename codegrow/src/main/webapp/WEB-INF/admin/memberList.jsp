@@ -23,7 +23,7 @@
 					<option value="ASC" class="align-option">오래된순</option>
 				</select>
 			</form>
-		
+
 			<table class="table table-hover">
 				<tr class="post-item">
 					<th class="user-number">번호</th>
@@ -33,7 +33,6 @@
 					<th class="user-reg">가입일</th>
 					<th class="user-rank">등급</th>
 				</tr>
-
 				<c:forEach var="user" items="${ users }">
 					<tr>
 						<td class="user-number">${ user.id }</td>
@@ -41,32 +40,32 @@
 						<td class="user-email">${ user.email }</td>
 						<td class="user-tel">${ user.tel }</td>
 						<td class="user-reg">${ user.regDate }</td>
-						<td class="user-rank">
-							<c:if test="${ user.rank ne 'O' }">
-							<div class="flex center align">
-								<select name="rank" class="rank-option">
-									<c:choose>
-										<c:when test="${ user.rank == 'B' }">
-											<option value="${ user.rank }">Student</option>
-										</c:when>
-										<c:when test="${ user.rank == 'T' }">
-											<option value="${ user.rank }">Teacher</option>
-										</c:when>
-										<c:otherwise>
-											<option value="${ user.rank }">Owner</option>
-										</c:otherwise>
-									</c:choose>
-
-									<optgroup label="--선택옵션--">
-										<option value="B">Student</option>
-										<option value="T">Teacher</option>
-										<option value="O">Owner</option>
-									</optgroup>
-								</select>
-								<a href="#">탈퇴</a>
-							</div>
-							</c:if>
-						</td>
+						<td class="user-rank"><c:if test="${ user.rank ne 'O' }">
+								<div class="flex center align">
+									<form method="post" action="/changeUserInfo?id=${ user.id }">
+										<select name="rank" class="rank-option" onchange="this.form.submit()">
+											<!-- 각 사용자의 등급에 맞게 selected 옵션 설정 -->
+											<c:choose>
+												<c:when test="${ user.rank == 'B' }">
+													<option value="${ user.rank }" class="selected-option" >Student</option>
+												</c:when>
+												<c:when test="${ user.rank == 'T' }">
+													<option value="${ user.rank }" class="selected-option" >Teacher</option>
+												</c:when>
+												<c:otherwise>
+													<option value="${ user.rank }" class="selected-option" >Owner</option>
+												</c:otherwise>
+											</c:choose>
+											<optgroup label="--선택옵션--" class="optgroup">
+												<option value="B">Student</option>
+												<option value="T">Teacher</option>
+												<option value="O">Owner</option>
+											</optgroup>
+										</select>
+									</form>
+									<a href="/changeUserInfo?id=${ user.id }" class="delete-user-btn">탈퇴</a>
+								</div>
+							</c:if></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -74,8 +73,8 @@
 	</section>
 
 	<section id="ohter">
+		<!-- 페이지네이션 -->
 		<c:if test="${ not empty startNum && not empty numOfPages}">
-			<!-- #### pageNation #### -->
 			<div id="page-nation" class="flex center">
 				<ul class="flex">
 					<a href="/memberList?p=${p - 1}" id="prev"> <i
@@ -92,27 +91,28 @@
 					</a>
 				</ul>
 			</div>
-			<!-- ########## -->
 		</c:if>
-
+		<!-- 검색폼 -->
 		<form method="post" action="/memberList" id="search-form" class="flex">
-			<input type="text" name="content" id="form-value"
+			<input type="text" name="name" id="form-value"
 				placeholder="회원명을 입력하세요">
 			<button id="search-button" class="none">검색</button>
 		</form>
 	</section>
+	
 	<%@include file="../common/footer.jsp"%>
 
+	<script src="./script/ohter/header.js"></script>
 	<script type="module">
-  import { 
-		currentPaging,
-		hiddenPrevButton,
-		searchBoardList,
-		hiddenNextButton,
-		selectOptionHandelr,
-} from "./script/board/boardList.js";	
+  	import { 
+			currentPaging,
+			hiddenPrevButton,
+			searchBoardList,
+			hiddenNextButton,
+			selectOptionHandelr,
+	} from "./script/board/boardList.js";	
 
-		const pageValue = ${p};
+		const pageValue = '${p}';
 		const lastValue = '${lastNum}';
 		const option = '${option}';	
 		if(lastValue) {
@@ -122,6 +122,11 @@
 			hiddenNextButton(pageValue, lastValue)
 			selectOptionHandelr(option);
 		}
-</script>
+	</script>
+	<script type="module">
+		import { userLankhandelr, deleteUserHandler } from "./script/admin/memberList.js";
+		userLankhandelr();
+		deleteUserHandler();
+	</script>
 </body>
 </html>

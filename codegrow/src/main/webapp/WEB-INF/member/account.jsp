@@ -31,7 +31,7 @@
 	</c:when>
 	<c:otherwise>
 		<h6 class="title">CREATE ACCOUNT</h6>
-		<form method="post" action="/updateInfo" id="join-form">
+		<form method="post" action="join" id="join-form">
 		<div class="border-box">
 			<label for="accound-id">EMAIL</label>
 			<input id="accound-id" type="text" name="email">
