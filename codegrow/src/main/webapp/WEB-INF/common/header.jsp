@@ -60,14 +60,6 @@
 					<c:choose>
 						<c:when test="${ empty sessionScope.email }">
 							<div class="flex">
-								<i class="fa-solid fa-bookmark inline"></i>
-								<a href='/login'>관심 목록</a>
-							</div>
-							<div class="flex">
-								<i class="fa-solid fa-user inline"></i>
-								<a href='/login'>계정</a>
-							</div>
-							<div class="flex">
 								<i class="fa-solid fa-right-to-bracket inline"></i>
 								<a href='/login'>로그인</a>
 							</div>
@@ -75,7 +67,7 @@
 						<c:otherwise>
 							 <div class="flex">
 									<i class="fa-solid fa-bookmark inline"></i>
-									<a href='/wish'>관심 목록</a>
+									<a href='/search'>관심 목록</a>
 								</div>
 								<div class="flex">
 									<i class="fa-solid fa-user inline"></i>

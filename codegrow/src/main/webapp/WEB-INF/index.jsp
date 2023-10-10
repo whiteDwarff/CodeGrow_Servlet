@@ -48,6 +48,8 @@ failedLoginInfo("${msg}");
 	</c:forEach>
 </section>
 
+	<%@include file="./common/footer.jsp"%>
+
 <script src="./script/ohter/header.js"></script>
 <script src="./script/index.js"></script>
 

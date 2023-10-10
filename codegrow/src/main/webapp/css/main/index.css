@@ -144,16 +144,6 @@ embed {
 }
 #white-bg span { font-weight: normal; margin: 0;}
 
-/* 스크롤 맨위로 올리기 */
-#swipe-btn {
-	position: fixed;
-	bottom: 10%;
-	left: 30px;
-	width: 50px;
-	z-index: 10;
-	cursor: pointer;
-}
-.background-black {
-	background-color: black;
-	color: white;
+footer {
+	margin-top: 6rem;
 }

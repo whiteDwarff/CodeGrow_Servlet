@@ -15,6 +15,8 @@ import com.web.category.dao.CategoryDao;
 import com.web.category.dto.CategoryDto;
 import com.web.service.Service;
 
+import cookie.BoardCookie;
+
 public class BoardContentService implements Service {
 
   @Override
@@ -26,11 +28,12 @@ public class BoardContentService implements Service {
       
      BoardAuthDao dao = BoardAuthDao.getInstance();
      BoardCommentDao contentDao = BoardCommentDao.getInstance();
+     BoardCookie addCookie = BoardCookie.getInstance();
       
     // insertBoard를 분기처리 하기 위해 id가 있는 경우 req 객체에 저장하여 포워딩 
     if(id != null && !id.isEmpty()) {
       int finalId = Integer.parseInt(id);
-      dao.updateHit(param, finalId);
+      addCookie.boardCookie(req, resp, param, id);
       AuthDto content = dao.fetchedBoardId(param, finalId);
       
       req.setAttribute("content", content);

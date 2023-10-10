@@ -36,23 +36,32 @@
 						<c:out value="${ video.description }" />
 					</h4>
 					<!-- 관심목록 버튼 -->
-					<button id="addToFavoritesBtn">
-						관심목록 추가 <i class="fa-solid fa-plus add"></i>
-					</button>
-
+						<c:if test="${ sessionScope.name eq null }">
+						<button id="addToFavoritesBtn" disabled>
+							로그인 후 이용할 수 있습니다.
+						</button>
+					</c:if>
+					<c:if test="${ result == 0 }">
+						<button id="addToFavoritesBtn">
+							관심목록 추가 <i class="fa-solid fa-plus add"></i>
+						</button>
+					</c:if>
+					<c:if test="${ result == 1 }">
+						<button id="addToFavoritesBtn">
+							관심목록 제거 <i class="fa-solid fa-minus add"></i>
+						</button>
+					</c:if>
 					<!-- ##### sub menu 영역 ##### -->
 					<ul class="list">
 						<div class="scroll-box">
 							<c:forEach var="list" items="${subMenu}">
-								<li>
+								<li class="sub-list">
 									<a href="/education?id=${ list.id }&group=${ list.category_id }">
-											<embed controls=0
-												src="https://img.youtube.com/vi/${ list.url }/maxresdefault.jpg"
-												allowfullscreen class="sub-url"></embed>
-											<div>
-												<span class="sub-url-title">${ list.title }</span>
-												<span class="sub-url-content">${ list.description }</span>
-											</div>
+										<embed controls=0 src="https://img.youtube.com/vi/${ list.url }/maxresdefault.jpg" allowfullscreen class="sub-url"></embed>
+										<div>
+											<span class="sub-url-title">${ list.title }</span>
+											<span class="sub-url-content">${ list.description }</span>
+										</div>
 									</a>
 								</li>
 							</c:forEach>
@@ -63,7 +72,12 @@
 			</div>
 		</div>
 	</section>
+	
+	<%@include file="../common/footer.jsp"%>
 
 	<script src="./script/ohter/header.js"></script>
-</body>
-</html>
+	<script type="module">
+		import { currentVideo, addWishList } from "./script/education/education.js";
+		currentVideo();
+		addWishList(${param.id}, ${ result });
+	</script>

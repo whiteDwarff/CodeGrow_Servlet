@@ -52,7 +52,7 @@ failedLoginInfo("${msg}");
 				</table>
 			</article>
 			
-			<c:if test="${empty lists }">
+			<c:if test="${ empty lists }">
 				<div id="data-none" class="text-align">
 					<span>검색된 결과가 없습니다.</span>
 				</div>

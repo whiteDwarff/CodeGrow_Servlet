@@ -14,23 +14,29 @@
 <body>
 <!-- search -->
 <%@include file="../common/header.jsp"%>
-
-<section id="card-box">
+	<section id="card-box">
 		<article class="wrap">
-		<c:forEach var="video" items="${ videos }">
-			<div class="url-card">
+			<c:forEach var="video" items="${ videos }">
+				<div class="url-card">
 					<a href="/education?id=${ video.id }&group=${ video.category_id }">
-						<span class="url-title">${ video.title }</span>
-						<span class="url-content">${ video.description }</span>
-						<embed controls=0
-						src="https://img.youtube.com/vi/${ video.url }/maxresdefault.jpg"
-						allowfullscreen></embed>
-				</a>
-			</div>
+						<span class="url-title">${ video.title }</span> <span
+						class="url-content">${ video.description }</span> <embed
+							controls=0
+							src="https://img.youtube.com/vi/${ video.url }/maxresdefault.jpg"
+							allowfullscreen></embed>
+					</a>
+				</div>
 			</c:forEach>
+			<c:if test="${ empty videos }">
+				<div id="data-none" class="text-align font">
+					<span>검색된 결과가 없습니다.</span>
+				</div>
+			</c:if>
 		</article>
-	</section>
+	</section>	
 	
-<script src="./script/ohter/header.js"></script>
+	<%@include file="../common/footer.jsp"%>
+
+	<script src="./script/ohter/header.js"></script>
 </body>
 </html>
