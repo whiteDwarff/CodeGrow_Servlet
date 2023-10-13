@@ -38,8 +38,11 @@ margin-top: 5px;
 	color: #fff;
 	font-weight: bold;
 }
+#admin-info p {
+	margin-bottom: 0;
+}
 </style>
-<footer>
+<footer id="footer">
 	<div class="footer-wrap flex between font">
 		<div id="admin-info" class="">
 			<div class="flex align" id="footer-main">

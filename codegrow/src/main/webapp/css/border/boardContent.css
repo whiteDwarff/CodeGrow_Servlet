@@ -1,63 +1,84 @@
 @charset "UTF-8";
-body {
-	font-size: 10px;
+a {
+	color: black;
 }
-a {color: black;}
-span {display: block;}
+html {
+	font-size: unset;
+}
+span {
+	display: block;
+}
+
 #content-wrap {
 	min-height: calc(100vh - 10rem);
 }
+
 #main-content,
 #comment-content,
-#add-content
- {
+#add-content {
 	width: 60%;
 	margin: 0 auto;
 }
+
 #main-content {
 	margin-bottom: 10rem;
 }
+
 #title-wrap {
 	margin: 2rem 0;
 }
-#title-wrap > div {
+
+#title-wrap>div {
 	font-size: 1rem;
 }
-#title-wrap > div i:last-child {
+
+#title-wrap>div i:last-child {
 	display: inline-block;
 	margin-left: 2rem;
 }
-#title-wrap > div > a > i{
+
+#title-wrap>div>a>i {
 	font-size: 1.5rem;
 }
+
 #content-title {
-	font-size: 3rem;
+	font-size: 2rem;
 }
+
 .qna-wrap {
 	padding: 1rem 0;
 	border: 1px solid #999;
 	border-bottom: none;
 }
+
 #last-wrap {
 	border-bottom: 1px solid #999;
 }
+
 .guide {
 	width: 20%;
 	padding: 0 2rem;
 }
+
 .qna-wrap .guide i {
 	display: inline-block;
 	margin-right: 2rem;
 }
+
 .grey {
 	color: grey;
 	font-size: 0.7rem;
 }
+
 #content {
 	margin: 2rem 0;
 	font-size: 1rem;
 }
-#note {display: inline-block; margin-right: 0.6rem;}
+
+#note {
+	display: inline-block;
+	margin-right: 0.6rem;
+}
 
 /* comment */
 .comment-card {
@@ -65,14 +86,17 @@ span {display: block;}
 	padding: 1rem 0 2rem 0;
 	margin-bottom: 2rem;
 }
+
 .comment-button-wrap {
 	padding-right: 2rem;
 	margin-left: auto;
 	font-size: 0.7rem;
 }
+
 .comment-button-wrap i:last-child {
 	margin-left: 1rem;
 }
+
 .comment-author {
 	width: 20%;
 	padding: 0 2rem;
@@ -80,9 +104,11 @@ span {display: block;}
 	color: cornflowerblue;
 	text-decoration: underline;
 }
+
 .comment-date {
 	color: grey;
 }
+
 .comment-content {
 	font-size: 0.8rem;
 }
@@ -93,9 +119,11 @@ span {display: block;}
 	margin: 0 auto 3rem auto;
 	padding: 3rem 0;
 }
+
 form {
 	width: 100%;
 }
+
 textarea {
 	width: 90%;
 	height: 3rem;
@@ -104,6 +132,7 @@ textarea {
 	margin-right: 2%;
 	padding-left: 1rem;
 }
+
 .submit-button {
 	height: 3rem;
 	width: 10%;
@@ -114,21 +143,25 @@ textarea {
 	margin-right: 5%;
 	transition: .5s ease-in;
 }
+
 .submit-button:hover {
 	background-color: #73d09a;
 	transition: .5s ease-in;
 }
+
 .margin-bottom {
 	margin-bottom: 1rem;
 }
 
 /* summer note */
-#header-wrap > nav a {
+#header-wrap>nav a {
 	font-size: 11.2px;
 }
+
 h1 {
 	font-weight: bold;
 }
+
 #content span {
 	display: inline;
 }
