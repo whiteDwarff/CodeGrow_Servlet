@@ -4,6 +4,9 @@ body {
 }
 a {color: black;}
 span {display: block;}
+#content-wrap {
+	min-height: calc(100vh - 10rem);
+}
 #main-content,
 #comment-content,
 #add-content

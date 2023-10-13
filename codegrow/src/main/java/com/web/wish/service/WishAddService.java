@@ -34,6 +34,7 @@ public class WishAddService implements Service {
       WishDao dao = WishDao.getInstance();
       int wish = dao.checkWishList(Integer.parseInt(video_id), member_id);
       dao.addWishVideo(Integer.parseInt(video_id), member_id);
+      req.setAttribute("result", wish);
 
     } catch (ParseException e) {
       e.printStackTrace();

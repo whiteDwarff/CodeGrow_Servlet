@@ -5,7 +5,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>CodeGrow || Q&A</title>
+<title>Q&A || CodeGrow</title>
 <script src="https://kit.fontawesome.com/08a7424104.js"
 	crossorigin="anonymous"></script>
 <!--  jQuery, bootstrap -->
@@ -27,6 +27,7 @@ failedLoginInfo("${msg}");
 <body>
 	<%@include file="../common/header.jsp"%>
 	<!-- 게시글 상세 내용 -->
+	<div id="content-wrap">
 	<section id="main-content">
 		<div class="main-wrap">
 			<div id="title-wrap" class="flex between align">
@@ -82,18 +83,18 @@ failedLoginInfo("${msg}");
 	<section id="add-content">
 		<div class="add-content-wrap flex">
 			<span class="guide grey">COMMENT</span>
-			<form id="add-comment" class="flex align-top" method="post" action="/insertComment">
+			<form id="add-comment" class="flex align-top" method="post" action="/insertComment?post_id=${content.id}">
 				<c:if test="${ pm eq 'board' && empty sessionScope.name }">
 					<textarea disabled class="grey bold">로그인 후 댓글을 작성할 수 있습니다.</textarea>
 				</c:if>
 					<c:if test="${ pm eq 'notice' }">
 					<textarea disabled class="grey bold">댓글 작성을 허용하지 않는 게시판입니다.</textarea>
+					<button class="submit-button pointer block bold" disabled>SUBMIT</button>
 				</c:if>
 				<c:if test="${ pm eq 'board' && not empty sessionScope.name }">
 					<textarea name="comment"></textarea>
+					<button class="submit-button pointer block bold">SUBMIT</button>
 				</c:if>
-				<input value="${ content.id }" name="post_id" class="none" />
-				<button class="submit-button pointer block bold">SUBMIT</button>
 			</form>
 		</div>
 	</section>
@@ -142,8 +143,9 @@ failedLoginInfo("${msg}");
 	</c:forEach>
 	</section>
 	</c:if>
-	<%@include file="../common/footer.jsp"%>
+ </div>
 	
+	<%@include file="../common/footer.jsp"%>
 	
 <script src="./script/ohter/header.js"></script>
 <script type="module">

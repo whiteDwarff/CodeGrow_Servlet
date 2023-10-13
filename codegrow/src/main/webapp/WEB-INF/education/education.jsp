@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>EDUCATION || CodeGrow</title>
 <script src="https://kit.fontawesome.com/08a7424104.js"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./css/ohter/common.css">
@@ -14,7 +14,7 @@
 </head>
 <body>
 	<%@include file="../common/header.jsp"%>
-
+	
 	<section id="url-box">
 		<div class="wrap">
 			<div class="flex-box">
@@ -23,7 +23,6 @@
 					title="YouTube video player" frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 					allowfullscreen />
-					
 				<div class="list-box">
 					<div id="hit" class="flex between">
 						<small>등록일 : ${ video.uploaded_at }</small>

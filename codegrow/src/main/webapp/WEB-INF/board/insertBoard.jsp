@@ -5,7 +5,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>CodeGrow || Q&A</title>
+<title>Q&A || CodeGrow</title>
 <!-- ##### SUMMER NOTE ##### -->
 <script src="https://kit.fontawesome.com/08a7424104.js" crossorigin="anonymous"></script>
 <!--  jQuery, bootstrap -->

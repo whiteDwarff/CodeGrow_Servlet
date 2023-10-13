@@ -28,10 +28,9 @@ public class BoardCookie{
           cookieExists = true;
           break;
       }
-        // 해당 게시글의 쿠키가 없다면 새로운 쿠키 생성
-       if (!cookieExists) addCookie(req, resp, param, id);
-    // 쿠키가 없는 경우 새로운 쿠키 생성
-    } else addCookie(req, resp, param, id);
+        // 해당 게시글의 쿠키가 없거나 쿠키가 아예 없는 경우 새로운 쿠키 생성
+       if (!cookieExists || cookies == null) addCookie(req, resp, param, id);
+    }
   }
   public void addCookie(HttpServletRequest req, HttpServletResponse resp, String param, String id) {
     BoardAuthDao dao = BoardAuthDao.getInstance();

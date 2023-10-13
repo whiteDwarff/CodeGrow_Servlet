@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CodeGrow || LOGIN</title>
+<title>LOGIN || CodeGrow</title>
 <script src="https://kit.fontawesome.com/08a7424104.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./css/login.css">
 <link rel="stylesheet" href="./css/ohter/common.css">
