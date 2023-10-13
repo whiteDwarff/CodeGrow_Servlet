@@ -69,7 +69,7 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
 | id         | int(11)             |   O     |         X         | 사용자의 고유 값  | Primary     |
 | name       | varchar(15)         |   O     |         X         | 사용자의 이름    | |
 | email      | varchar(30)         |   O     |         X         | 사용자의 이메일    | |
-| password   | varchar(255)        |   X     |         X         | 사용자의 비밀번호   |  |
+| password   | varchar(255)        |   O     |         X         | 사용자의 비밀번호   |  |
 | phone_number | int(15)           |   X     |         X          | 사용자의 휴대폰 번호 |  |
 | created_at | timestamp           |   O     |  current_timestamp | 가입일     | |
 | rank      | varchar(1)           |   O     |       B       | 사용자의 등급    |  |
