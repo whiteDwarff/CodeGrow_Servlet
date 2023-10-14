@@ -135,7 +135,7 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
 |------------|---------------------|---------|-------------------|--------------------|--------|
 | id         | int(11)             |   O     |         X         | 동영상의 고유 값  | Primary     |
 | title      | varchar(60)         |   O     |         X         | 동영상의 내용     | |
-| description |  varchar(150)      |   O     | current_timestamp | 작성일          |  |
+| description |  varchar(150)      |   O     |         X         | 작성일          |  |
 | url        | varchar(50)         |   O     |         X         | 동영상의 url 정보 |  |
 | hit  | int(4)                    |   O     |         0         | 동영상의 조회수    |  |
 | uploader_id  | int(11)           |   O     |         X         | 작성자         | Foreign |
@@ -150,8 +150,8 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
 | Column     | DataType            | NotNull | Default           | Description        | Key    |
 |------------|---------------------|---------|-------------------|--------------------|--------|
 | id         | int(11)             |   O     |         X         | 관심목록의 고유 값      |Primary|
-| video_id   | int(11)             |   O     |         X         | 카테고리의 설명         |Foreign|
-| member_id  | int(11)             |   O     |         X         | 생성일                |Foreign|
+| video_id   | int(11)             |   O     |         X         | 비디오의 고유값        |Foreign|
+| member_id  | int(11)             |   O     |         X         | 사용자의 고유값        |Foreign|
 
 <br><br>
 
