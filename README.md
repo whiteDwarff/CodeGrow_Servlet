@@ -331,11 +331,10 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
  - 사용자의 등급이 Teacher이거나 Owner인 경우 강의를 등록할 수 있습니다.
  - 강의를 등록하려면 유효성 검사를 통과해야 합니다.
  - 강의의 URL을 입력 후 유튜브 아이콘을 클릭하면 하단의 썸네일이 변경됩니다.
-<img width="1446" alt="lecture_insert" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/77a80be2-2617-4283-b66a-4958f6ed89c7">
+<img width="1446" alt="lecture_insert" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/b15218f3-1ef8-4455-89f5-f1c253f6ca9e">
 
  - 강의가 정상적으로 등록되면 education 페이지로 이동합니다.
-<img width="1446" alt="lecture_suceess" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/e20b1135-80b3-4fef-b792-93ddf92583c9">
-
+<img width="1446" alt="lecture_suceess" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/af2f69fe-b61b-4d4c-80ec-84cd6d06b894">
 <br><br>
 
  **10. LectureList**<br> 
@@ -344,7 +343,7 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
  - 강의수정은 강의를 등록할 때 사용한 파일을 분기처리하여 사용합니다.
  - 상단의 select 태그를 통해 최신순, 오래된순, 조회수높은순, 조회수 낮은순으로 정렬옵션을 선택할 수 있습니다.
  - 하단의 input을 통해 제목을 검색할 수 있습니다.
-<img width="1446" alt="lecture_list" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/d7d9ee5a-6f27-4411-926a-2ce80c001fee">
+<img width="1446" alt="lecture_list" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/ce0f69f0-ea20-4c86-92d4-71324bef14fc">
 
    
 <br><br>
@@ -353,7 +352,7 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
  - 사용자의 가입 정보를 확인할 수 있는 페이지 입니다.
  - 등급이 Owner인 사용자만 접근 할 수 있습니다.
  - 회원의 등급을 조정하거나 탈퇴시킬 수 있습니다.
- <img width="1206" alt="owner" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/b752dca7-4d8f-4613-8850-1fb326d7376e">
+<img width="1446" alt="owner" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/945caf85-d7da-4172-8707-7d9e526f2d57">
 
  <br><br>
 
