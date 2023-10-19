@@ -160,7 +160,10 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
  - 프로젝트의 메인화면입니다. 헤더의 사람 아이콘을 클릭하여 로그인 및 회원가입 할 수 있습니다.
  - 동영상은 카테고리별로 분류되어 있으며, 슬라이드 형식으로 배치하였습니다.
  - 동영상을 클릭하면 education 페이지로 이동할 수 있습니다.
-<img width="1446" alt="index" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/40f85c8d-b8d2-43ad-bb21-69f30c80b823">
+<img width="1446" alt="index" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/0d7b144a-8883-4982-9712-0bd8d2a8e080">
+
+
+
 
 <br><br>
 
@@ -168,31 +171,32 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
  - 로그인 및 회원가입 화면입니다.
  - 로그인 및 회원가입을 완료하려면 유효성 검사를 통과해야 합니다.
  - 회원가입 폼을 재사용 가능하도록 사용자 정보 수정 시에도 활용하며, @include를 활용하여 불러왔습니다.<br>
- <img width="1446" alt="join" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/89e82b5b-7088-4f36-9ff8-8e99752e6972">
- 
+<img width="1446" alt="join-db" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/2b35adc8-a343-4188-9e0c-71aa52e61b98">
+
   - password는 SHA256 알고리즘을 사용하여 암호화하여 저장하였습니다.
  
  ```ruby
   String sql = "INSERT INTO member (name, email, password, phone_number) VALUES(?,?,SHA2(?, 256),?)";
  ```
- <img width="1446" alt="join-db" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/cdfa73d3-b657-4233-b324-0704955f31df">
- 
+<img width="1446" alt="login" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/ea26c040-6a28-4932-8fe0-bf8001779e2c">
+
   - 로그인 후 Index로 이동됩니다.
- <img width="1446" alt="logined" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/04b2d63f-e8b8-4a07-b818-dd619c17a9d9">
+<img width="1446" alt="logined" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/0f2f72df-574b-4fc3-b615-07df9c9dd98d">
+
 
 <br><br>
 
  **3. UpdateInfo**<br> 
  - 회원가입 시 사용한 파일을 분기처리하여 사용합니다.
  - 수정한 password 또한 SHA256 알고리즘을 사용하여 저장됩니다.
-<img width="1446" alt="update-info" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/cf5bc9c9-e3c0-4f8b-b106-24d05ce532c4">
+<img width="1027" alt="update-info" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/5ceb23b0-c8d9-4a1b-a4aa-f7595c914ac1">
 
 <br><br>
 
  **4. Education**<br> 
  - 강의를 시청할 수 있는 페이지 입니다.
  - 강의 우측에는 동일한 카테고리를 가진 강의가 슬라이드 형식으로 배치됩니다.
-<img width="1446" alt="education" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/7831621d-5a82-4106-94af-07e70d6807f4">
+<img width="1438" alt="education" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/2d05b8f5-6100-46cd-b5de-ab0d6e2c4589">
 
  - 강의를 관심목록에 추가하거나 삭제할 수 있습니다.
  - 해당 기능은 ES6의 FetchAPI를 사용하였으며, ajax를 통해 JSON 데이터가 서버로 전달되어 wish 테이블에서 추가되거나 삭제됩니다.<br>
@@ -263,15 +267,15 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
  - 게시글을 작성하려면 유효성 검사를 통과해야 합니다.
  - Q&A 작성 폼은 썸머노트로 구현되었으며 다양한 텍스트 에디터의 기능 및 이미지, 동영상 삽입이 가능합니다.
  - 🔗 [SummerNote]  (https://summernote.org/)
-<img width="1446" alt="qna" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/d353d84b-0946-4781-a182-d2692d6a3c35">
- 
+<img width="1446" alt="qna" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/d50a6e61-c257-4af2-b838-0336e7b04dfd">
+
 <br><br>
 
  **6. Q&A Content**<br> 
  - 게시글을 등록하거나 클릭하면 해당 페이지로 이동합니다.
  - session에 저장된 ID와 문의사항 작성자의 ID가 동일하다면 수정 및 삭제 기능을 이용할 수 있습니다.
  - 해당 페이지에서도 썸머노트가 사용됩니다.
-<img width="1446" alt="boardContent" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/5612db0f-d682-4263-b7b1-e7b2ebba1d88">
+<img width="1446" alt="boardContent" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/2ab59458-cb7d-4bcd-8b77-2a1ba5ea1b18">
 
  - 게시글을 클릭하여 해당페이지에 들어오면 해당 게시글의 조회수가 증가하며, 클릭 후 24시간 이내에 다시 클릭하더라도 조회수가 중복으로 증가하지 않습니다.
    
@@ -302,7 +306,7 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
  **7. Q&A Update**<br> 
  - 게시글을 수정하는 페이지 입니다.
  - 게시글을 작성할 때 사용한 파일을 분기처리하여 사용합니다.
-<img width="1446" alt="boardUpdate" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/2f4dce13-13e4-4fa9-ad5a-52149858db8c">
+<img width="1446" alt="boardUpdate" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/d069eff9-dc3d-421b-a26f-bb69ec252fde">
 
 <br><br>
 
@@ -314,11 +318,11 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
  - 사용자가 작성한 게시글과 운영자가 작성한 공지사항은 모두 한 파일에서 구현되었으며, 파라미터를 통해 분기처리 하였습니다.
  - 사용자가 작성한 게시글을 확인할 수 있는 화면입니다.
 
- <img width="1446" alt="board" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/8617b98f-c2a4-4124-93d1-2eb76062537a">
+<img width="1446" alt="board" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/ba9eae89-7ac2-412a-a697-72bc259cf2d3">
 
  - 운영자가 작성한 공지사항을 확인할 수 있는 화면입니다.
 
-<img width="1446" alt="notice" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/78552113-9389-426b-8702-f79b11db1277">
+<img width="1446" alt="notice" src="https://github.com/whiteDwarff/CodeGrow_Servlet/assets/115057117/a8447ee4-d58a-4490-9ecb-bf1cc08f15a8">
 
 <br><br>
 
