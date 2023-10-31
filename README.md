@@ -86,7 +86,7 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
 | content    | longtext            |   O     |         X         | 게시글의 내용    | |
 | created_at | timestamp           |   X     | current_timestamp | 작성일         |  |
 | hit        | int(4)              |   O     |       0           | 게시글의 조회수  |  |
-| author_id  | int(11)             |   O     |         X         | 게시글 작성자    | Foreign |
+| author_id  | int(11)             |   O     |         X         | 게시글 작성자의 고유 값    | Foreign |
 
 <br>
 
@@ -95,12 +95,12 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
 
 | Column     | DataType            | NotNull | Default           | Description        | Key    |
 |------------|---------------------|---------|-------------------|--------------------|--------|
-| id         | int(11)             |   O     |         X         | 게시글의 고유 값  | Primary     |
-| title      | varchar(255)        |   O     |         X         | 게시글의 제목    | |
-| content    | longtext            |   O     |         X         | 게시글의 내용    | |
+| id         | int(11)             |   O     |         X         | 공지사항의 고유 값  | Primary     |
+| title      | varchar(255)        |   O     |         X         | 공지사항의 제목    | |
+| content    | longtext            |   O     |         X         | 공지사항의 내용    | |
 | created_at | timestamp           |   X     | current_timestamp | 작성일         |  |
-| hit        | int(4)              |   O     |       0           | 게시글의 조회수  |  |
-| author_id  | int(11)             |   O     |         X         | 게시글 작성자    | Foreign |
+| hit        | int(4)              |   O     |       0           | 공지사항의 조회수  |  |
+| author_id  | int(11)             |   O     |         X         | 공지사항의 작성자    | Foreign |
 
 <br>
 
@@ -140,7 +140,7 @@ CodeGrow는 웹 개발자들의 성장을 위해 제작된 온라인 학습 플�
 | hit  | int(4)                    |   O     |         0         | 동영상의 조회수    |  |
 | uploader_id  | int(11)           |   O     |         X         | 작성자         | Foreign |
 | uploaded_at  | timestamp         |   O     |  current_timestamp| 작성일         | Foreign |
-| category_id  | int(11)           |   O     |         X         | 카테고리 정보    | Foreign |
+| category_id  | int(11)           |   O     |         X         | 카테고리 고유 값    | Foreign |
 
 <br>
 
